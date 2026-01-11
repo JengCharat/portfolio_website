@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="th" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans+Thai:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+      font-family: 'Noto Sans Thai', 'Space Grotesk', sans-serif;
+    }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, var(--primary-action) 0%, var(--secondary-action) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .card-hover {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-4px);
+    }
+    
+    .timeline-line {
+      background: linear-gradient(180deg, var(--primary-action) 0%, var(--secondary-action) 100%);
+    }
+    
+    .badge {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    .badge:nth-child(2) { animation-delay: 0.5s; }
+    .badge:nth-child(3) { animation-delay: 1s; }
+    .badge:nth-child(4) { animation-delay: 1.5s; }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-in {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    .cert-scroll {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
+    }
+    
+    .cert-scroll::-webkit-scrollbar {
+      height: 6px;
+    }
+    
+    .cert-scroll::-webkit-scrollbar-track {
+      background: var(--secondary-surface);
+      border-radius: 3px;
+    }
+    
+    .cert-scroll::-webkit-scrollbar-thumb {
+      background: var(--primary-action);
+      border-radius: 3px;
+    }
+    
+    .cert-card {
+      scroll-snap-align: start;
+      min-width: 280px;
+    }
+    
+    .nav-link {
+      position: relative;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary-action);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .skill-bar {
+      transition: width 1s ease-out;
+    }
+    
+    :root {
+      --background: #0a0a0f;
+      --secondary-surface: #16161d;
+      --text-color: #e4e4e7;
+      --primary-action: #6366f1;
+      --secondary-action: #22d3ee;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full" style="background-color: var(--background); color: var(--text-color);">
+  <div class="h-full overflow-auto"><!-- Navigation -->
+   <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style="background: rgba(10, 10, 15, 0.8); border-bottom: 1px solid var(--secondary-surface);">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between"><span class="text-xl font-bold gradient-text">Portfolio</span>
+     <div class="hidden md:flex items-center gap-6"><a href="#about" class="nav-link text-sm hover:opacity-80 transition">เกี่ยวกับ</a> <a href="#skills" class="nav-link text-sm hover:opacity-80 transition">ทักษะ</a> <a href="#certificates" class="nav-link text-sm hover:opacity-80 transition">เกียรติบัตร</a> <a href="#projects" class="nav-link text-sm hover:opacity-80 transition">โปรเจค</a> <a href="#contact" class="nav-link text-sm hover:opacity-80 transition">ติดต่อ</a>
+     </div><button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg" style="background: var(--secondary-surface);">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg></button>
+    </div><!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden px-4 pb-4">
+     <div class="flex flex-col gap-2" style="background: var(--secondary-surface); border-radius: 12px; padding: 1rem;"><a href="#about" class="py-2 px-3 rounded-lg hover:opacity-80 transition">เกี่ยวกับ</a> <a href="#skills" class="py-2 px-3 rounded-lg hover:opacity-80 transition">ทักษะ</a> <a href="#certificates" class="py-2 px-3 rounded-lg hover:opacity-80 transition">เกียรติบัตร</a> <a href="#projects" class="py-2 px-3 rounded-lg hover:opacity-80 transition">โปรเจค</a> <a href="#contact" class="py-2 px-3 rounded-lg hover:opacity-80 transition">ติดต่อ</a>
+     </div>
+    </div>
+   </nav><!-- Hero Section -->
+   <section id="about" class="pt-24 pb-16 px-4">
+    <div class="max-w-6xl mx-auto">
+     <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16"><!-- Profile Image -->
+      <div class="relative animate-in" style="animation-delay: 0.1s;">
+       <div class="w-48 h-48 lg:w-64 lg:h-64 rounded-full overflow-hidden" style="background: linear-gradient(135deg, var(--primary-action), var(--secondary-action)); padding: 4px;">
+        <div class="w-full h-full rounded-full flex items-center justify-center text-6xl lg:text-8xl" style="background: var(--secondary-surface);">
+         👨‍💻
+        </div>
+       </div><!-- Floating Badges -->
+       <div class="absolute -top-2 -right-2 badge">
+        <div class="px-3 py-1 rounded-full text-xs font-medium" style="background: var(--primary-action);">
+         🤖 Robotics
+        </div>
+       </div>
+       <div class="absolute -bottom-2 -left-2 badge">
+        <div class="px-3 py-1 rounded-full text-xs font-medium" style="background: var(--secondary-action); color: var(--background);">
+         💻 Developer
+        </div>
+       </div>
+      </div><!-- Hero Text -->
+      <div class="flex-1 text-center lg:text-left animate-in" style="animation-delay: 0.2s;">
+       <p class="text-sm mb-2" style="color: var(--secondary-action);">สวัสดีครับ 👋 ผมคือ</p>
+       <h1 id="hero-name" class="text-4xl lg:text-6xl font-bold mb-3 gradient-text">นายตัวอย่าง ใจดี</h1>
+       <h2 id="hero-title" class="text-xl lg:text-2xl font-medium mb-4" style="opacity: 0.9;">Software Developer Intern</h2>
+       <p id="hero-bio" class="text-base lg:text-lg mb-6 max-w-xl" style="opacity: 0.7; line-height: 1.8;">นักศึกษาชั้นปีที่ 3 สาขาวิศวกรรมคอมพิวเตอร์ หลงใหลในการสร้างสรรค์เทคโนโลยี มีประสบการณ์แข่งขันหุ่นยนต์ตั้งแต่มัธยม และพัฒนาโปรเจคหลากหลาย</p>
+       <div class="flex flex-wrap gap-3 justify-center lg:justify-start"><a href="#projects" class="px-6 py-3 rounded-xl font-medium transition hover:opacity-90" style="background: var(--primary-action);"> ดูผลงาน → </a> <a href="#contact" class="px-6 py-3 rounded-xl font-medium transition hover:opacity-80" style="background: var(--secondary-surface); border: 1px solid var(--primary-action);"> ติดต่อผม </a>
+       </div>
+      </div>
+     </div><!-- Stats -->
+     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 animate-in" style="animation-delay: 0.3s;">
+      <div class="text-center p-6 rounded-2xl card-hover" style="background: var(--secondary-surface);">
+       <div class="text-3xl lg:text-4xl font-bold gradient-text">
+        15+
+       </div>
+       <div class="text-sm mt-1" style="opacity: 0.7;">
+        เกียรติบัตร
+       </div>
+      </div>
+      <div class="text-center p-6 rounded-2xl card-hover" style="background: var(--secondary-surface);">
+       <div class="text-3xl lg:text-4xl font-bold gradient-text">
+        8+
+       </div>
+       <div class="text-sm mt-1" style="opacity: 0.7;">
+        โปรเจค
+       </div>
+      </div>
+      <div class="text-center p-6 rounded-2xl card-hover" style="background: var(--secondary-surface);">
+       <div class="text-3xl lg:text-4xl font-bold gradient-text">
+        3
+       </div>
+       <div class="text-sm mt-1" style="opacity: 0.7;">
+        Hackathon
+       </div>
+      </div>
+      <div class="text-center p-6 rounded-2xl card-hover" style="background: var(--secondary-surface);">
+       <div class="text-3xl lg:text-4xl font-bold gradient-text">
+        6+
+       </div>
+       <div class="text-sm mt-1" style="opacity: 0.7;">
+        ปีประสบการณ์
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Skills Section -->
+   <section id="skills" class="py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+     <h2 class="text-3xl font-bold text-center mb-12"><span class="gradient-text">ทักษะ</span> &amp; ความสามารถ</h2>
+     <div class="grid md:grid-cols-2 gap-8"><!-- Technical Skills -->
+      <div class="p-6 rounded-2xl" style="background: var(--secondary-surface);">
+       <h3 class="text-xl font-semibold mb-6 flex items-center gap-2"><span style="color: var(--primary-action);">⚡</span> Technical Skills</h3>
+       <div class="space-y-4">
+        <div>
+         <div class="flex justify-between mb-1 text-sm"><span>Python</span><span style="color: var(--secondary-action);">90%</span>
+         </div>
+         <div class="h-2 rounded-full" style="background: var(--background);">
+          <div class="skill-bar h-full rounded-full" style="width: 90%; background: linear-gradient(90deg, var(--primary-action), var(--secondary-action));"></div>
+         </div>
+        </div>
+        <div>
+         <div class="flex justify-between mb-1 text-sm"><span>JavaScript / TypeScript</span><span style="color: var(--secondary-action);">85%</span>
+         </div>
+         <div class="h-2 rounded-full" style="background: var(--background);">
+          <div class="skill-bar h-full rounded-full" style="width: 85%; background: linear-gradient(90deg, var(--primary-action), var(--secondary-action));"></div>
+         </div>
+        </div>
+        <div>
+         <div class="flex justify-between mb-1 text-sm"><span>React / Vue.js</span><span style="color: var(--secondary-action);">80%</span>
+         </div>
+         <div class="h-2 rounded-full" style="background: var(--background);">
+          <div class="skill-bar h-full rounded-full" style="width: 80%; background: linear-gradient(90deg, var(--primary-action), var(--secondary-action));"></div>
+         </div>
+        </div>
+        <div>
+         <div class="flex justify-between mb-1 text-sm"><span>Arduino / Embedded</span><span style="color: var(--secondary-action);">85%</span>
+         </div>
+         <div class="h-2 rounded-full" style="background: var(--background);">
+          <div class="skill-bar h-full rounded-full" style="width: 85%; background: linear-gradient(90deg, var(--primary-action), var(--secondary-action));"></div>
+         </div>
+        </div>
+        <div>
+         <div class="flex justify-between mb-1 text-sm"><span>SQL / Database</span><span style="color: var(--secondary-action);">75%</span>
+         </div>
+         <div class="h-2 rounded-full" style="background: var(--background);">
+          <div class="skill-bar h-full rounded-full" style="width: 75%; background: linear-gradient(90deg, var(--primary-action), var(--secondary-action));"></div>
+         </div>
+        </div>
+       </div>
+      </div><!-- Soft Skills & Tools -->
+      <div class="space-y-6">
+       <div class="p-6 rounded-2xl" style="background: var(--secondary-surface);">
+        <h3 class="text-xl font-semibold mb-4 flex items-center gap-2"><span style="color: var(--secondary-action);">🛠️</span> Tools &amp; Platforms</h3>
+        <div class="flex flex-wrap gap-2"><span class="px-3 py-2 rounded-lg text-sm" style="background: var(--background);">Git</span> <span class="px-3 py-2 rounded-lg text-sm" style="background: var(--background);">Docker</span> <span class="px-3 py-2 rounded-lg text-sm" style="background: var(--background);">VS Code</span> <span class="px-3 py-2 rounded-lg text-sm" style="background: var(--background);">Figma</span> <span class="px-3 py-2 rounded-lg text-sm" style="background: var(--background);">Linux</span> <span class="px-3 py-2 rounded-lg text-sm" style="background: var(--background);">AWS</span> <span class="px-3 py-2 rounded-lg text-sm" style="background: var(--background);">Firebase</span> <span class="px-3 py-2 rounded-lg text-sm" style="background: var(--background);">Arduino IDE</span>
+        </div>
+       </div>
+       <div class="p-6 rounded-2xl" style="background: var(--secondary-surface);">
+        <h3 class="text-xl font-semibold mb-4 flex items-center gap-2"><span style="color: var(--primary-action);">💡</span> Soft Skills</h3>
+        <div class="grid grid-cols-2 gap-3">
+         <div class="flex items-center gap-2 text-sm"><span style="color: var(--secondary-action);">✓</span> Problem Solving
+         </div>
+         <div class="flex items-center gap-2 text-sm"><span style="color: var(--secondary-action);">✓</span> Team Collaboration
+         </div>
+         <div class="flex items-center gap-2 text-sm"><span style="color: var(--secondary-action);">✓</span> Fast Learner
+         </div>
+         <div class="flex items-center gap-2 text-sm"><span style="color: var(--secondary-action);">✓</span> Time Management
+         </div>
+         <div class="flex items-center gap-2 text-sm"><span style="color: var(--secondary-action);">✓</span> Communication
+         </div>
+         <div class="flex items-center gap-2 text-sm"><span style="color: var(--secondary-action);">✓</span> Leadership
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Certificates Timeline -->
+   <section id="certificates" class="py-16 px-4" style="background: var(--secondary-surface);">
+    <div class="max-w-6xl mx-auto">
+     <h2 class="text-3xl font-bold text-center mb-4"><span class="gradient-text">เกียรติบัตร</span> &amp; รางวัล</h2>
+     <p class="text-center mb-12" style="opacity: 0.7;">ผลงานตั้งแต่มัธยมศึกษาจนถึงระดับมหาวิทยาลัย</p><!-- High School Section -->
+     <div class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+       <div class="w-10 h-10 rounded-full flex items-center justify-center text-xl" style="background: var(--primary-action);">
+        🎓
+       </div>
+       <h3 class="text-xl font-semibold">มัธยมศึกษา - การแข่งขันหุ่นยนต์ &amp; โครงงาน</h3>
+      </div>
+      <div class="cert-scroll">
+       <div class="cert-card p-5 rounded-xl card-hover" style="background: var(--background);">
+        <div class="text-3xl mb-3">
+         🥇
+        </div>
+        <h4 class="font-semibold mb-1">ชนะเลิศ Robot Sumo</h4>
+        <p class="text-sm mb-2" style="opacity: 0.7;">การแข่งขันหุ่นยนต์ระดับภาค</p><span class="text-xs px-2 py-1 rounded" style="background: var(--primary-action); opacity: 0.8;">2019</span>
+       </div>
+       <div class="cert-card p-5 rounded-xl card-hover" style="background: var(--background);">
+        <div class="text-3xl mb-3">
+         🥈
+        </div>
+        <h4 class="font-semibold mb-1">รองชนะเลิศ Line Tracking</h4>
+        <p class="text-sm mb-2" style="opacity: 0.7;">งานศิลปหัตถกรรมนักเรียน</p><span class="text-xs px-2 py-1 rounded" style="background: var(--primary-action); opacity: 0.8;">2019</span>
+       </div>
+       <div class="cert-card p-5 rounded-xl card-hover" style="background: var(--background);">
+        <div class="text-3xl mb-3">
+         🏆
+        </div>
+        <h4 class="font-semibold mb-1">เหรียญทอง โครงงานคอมพิวเตอร์</h4>
+        <p class="text-sm mb-2" style="opacity: 0.7;">ระดับเขตพื้นที่การศึกษา</p><span class="text-xs px-2 py-1 rounded" style="background: var(--primary-action); opacity: 0.8;">2020</span>
+       </div>
+       <div class="cert-card p-5 rounded-xl card-hover" style="background: var(--background);">
+        <div class="text-3xl mb-3">
+         🥇
+        </div>
+        <h4 class="font-semibold mb-1">ชนะเลิศ IOT Challenge</h4>
+        <p class="text-sm mb-2" style="opacity: 0.7;">แข่งขันระดับจังหวัด</p><span class="text-xs px-2 py-1 rounded" style="background: var(--primary-action); opacity: 0.8;">2020</span>
+       </div>
+       <div class="cert-card p-5 rounded-xl card-hover" style="background: var(--background);">
+        <div class="text-3xl mb-3">
+         🎖️
+        </div>
+        <h4 class="font-semibold mb-1">เหรียญเงิน WRO</h4>
+        <p class="text-sm mb-2" style="opacity: 0.7;">World Robot Olympiad ระดับประเทศ</p><span class="text-xs px-2 py-1 rounded" style="background: var(--primary-action); opacity: 0.8;">2020</span>
+       </div>
+       <div class="cert-card p-5 rounded-xl card-hover" style="background: var(--background);">
+        <div class="text-3xl mb-3">
+         📜
+        </div>
+        <h4 class="font-semibold mb-1">Best Innovation Award</h4>
+        <p class="text-sm mb-2" style="opacity: 0.7;">โครงงานวิทยาศาสตร์</p><span class="text-xs px-2 py-1 rounded" style="background: var(--primary-action); opacity: 0.8;">2021</span>
+       </div>
+      </div>
+     </div><!-- University Section -->
+     <div>
+      <div class="flex items-center gap-3 mb-6">
+       <div class="w-10 h-10 rounded-full flex items-center justify-center text-xl" style="background: var(--secondary-action); color: var(--background);">
+        🎯
+       </div>
+       <h3 class="text-xl font-semibold">มหาวิทยาลัย - Hackathon &amp; Competition</h3>
+      </div>
+      <div class="cert-scroll">
+       <div class="cert-card p-5 rounded-xl card-hover" style="background: var(--background);">
+        <div class="text-3xl mb-3">
+         🚀
+        </div>
+        <h4 class="font-semibold mb-1">Finalist - Angel Hack</h4>
+        <p class="text-sm mb-2" style="opacity: 0.7;">Hackathon 48 ชั่วโมง</p><span class="text-xs px-2 py-1 rounded" style="background: var(--secondary-action); color: var(--background);">2023</span>
+       </div>
+       <div class="cert-card p-5 rounded-xl card-hover" style="background: var(--background);">
+        <div class="text-3xl mb-3">
+         🥉
+        </div>
+        <h4 class="font-semibold mb-1">3rd Place - Tech Startup</h4>
+        <p class="text-sm mb-2" style="opacity: 0.7;">University Hackathon</p><span class="text-xs px-2 py-1 rounded" style="background: var(--secondary-action); color: var(--background);">2023</span>
+       </div>
+       <div class="cert-card p-5 rounded-xl card-hover" style="background: var(--background);">
+        <div class="text-3xl mb-3">
+         ⭐
+        </div>
+        <h4 class="font-semibold mb-1">Best UI/UX Design</h4>
+        <p class="text-sm mb-2" style="opacity: 0.7;">Code Camp Competition</p><span class="text-xs px-2 py-1 rounded" style="background: var(--secondary-action); color: var(--background);">2024</span>
+       </div>
+       <div class="cert-card p-5 rounded-xl card-hover" style="background: var(--background);">
+        <div class="text-3xl mb-3">
+         📱
+        </div>
+        <h4 class="font-semibold mb-1">Mobile App Innovation</h4>
+        <p class="text-sm mb-2" style="opacity: 0.7;">National Software Contest</p><span class="text-xs px-2 py-1 rounded" style="background: var(--secondary-action); color: var(--background);">2024</span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Projects Section -->
+   <section id="projects" class="py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+     <h2 class="text-3xl font-bold text-center mb-4"><span class="gradient-text">โปรเจค</span> ที่น่าสนใจ</h2>
+     <p class="text-center mb-12" style="opacity: 0.7;">ผลงานที่คัดสรรมาแสดง</p>
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"><!-- Project 1 -->
+      <div class="rounded-2xl overflow-hidden card-hover" style="background: var(--secondary-surface);">
+       <div class="h-40 flex items-center justify-center text-6xl" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(34, 211, 238, 0.3));">
+        🤖
+       </div>
+       <div class="p-5">
+        <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-1 rounded" style="background: var(--primary-action);">Hardware</span> <span class="text-xs px-2 py-1 rounded" style="background: var(--background);">Arduino</span>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Smart Agriculture Robot</h3>
+        <p class="text-sm mb-4" style="opacity: 0.7;">หุ่นยนต์เกษตรอัจฉริยะที่สามารถตรวจวัดความชื้นดินและรดน้ำอัตโนมัติ</p>
+        <div class="flex gap-2"><span class="text-xs" style="color: var(--secondary-action);">Python</span> <span class="text-xs" style="opacity: 0.5;">•</span> <span class="text-xs" style="color: var(--secondary-action);">IoT</span> <span class="text-xs" style="opacity: 0.5;">•</span> <span class="text-xs" style="color: var(--secondary-action);">Sensors</span>
+        </div>
+       </div>
+      </div><!-- Project 2 -->
+      <div class="rounded-2xl overflow-hidden card-hover" style="background: var(--secondary-surface);">
+       <div class="h-40 flex items-center justify-center text-6xl" style="background: linear-gradient(135deg, rgba(34, 211, 238, 0.3), rgba(99, 102, 241, 0.3));">
+        📊
+       </div>
+       <div class="p-5">
+        <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-1 rounded" style="background: var(--secondary-action); color: var(--background);">Web App</span> <span class="text-xs px-2 py-1 rounded" style="background: var(--background);">React</span>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Student Management System</h3>
+        <p class="text-sm mb-4" style="opacity: 0.7;">ระบบจัดการข้อมูลนักศึกษา ลงทะเบียน และตรวจสอบผลการเรียน</p>
+        <div class="flex gap-2"><span class="text-xs" style="color: var(--secondary-action);">React</span> <span class="text-xs" style="opacity: 0.5;">•</span> <span class="text-xs" style="color: var(--secondary-action);">Node.js</span> <span class="text-xs" style="opacity: 0.5;">•</span> <span class="text-xs" style="color: var(--secondary-action);">MongoDB</span>
+        </div>
+       </div>
+      </div><!-- Project 3 -->
+      <div class="rounded-2xl overflow-hidden card-hover" style="background: var(--secondary-surface);">
+       <div class="h-40 flex items-center justify-center text-6xl" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(168, 85, 247, 0.3));">
+        🎮
+       </div>
+       <div class="p-5">
+        <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-1 rounded" style="background: var(--primary-action);">Game</span> <span class="text-xs px-2 py-1 rounded" style="background: var(--background);">Unity</span>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">AR Educational Game</h3>
+        <p class="text-sm mb-4" style="opacity: 0.7;">เกมการศึกษา AR สำหรับเรียนรู้วิทยาศาสตร์แบบ Interactive</p>
+        <div class="flex gap-2"><span class="text-xs" style="color: var(--secondary-action);">C#</span> <span class="text-xs" style="opacity: 0.5;">•</span> <span class="text-xs" style="color: var(--secondary-action);">Unity</span> <span class="text-xs" style="opacity: 0.5;">•</span> <span class="text-xs" style="color: var(--secondary-action);">AR</span>
+        </div>
+       </div>
+      </div><!-- Project 4 -->
+      <div class="rounded-2xl overflow-hidden card-hover" style="background: var(--secondary-surface);">
+       <div class="h-40 flex items-center justify-center text-6xl" style="background: linear-gradient(135deg, rgba(34, 211, 238, 0.3), rgba(16, 185, 129, 0.3));">
+        💬
+       </div>
+       <div class="p-5">
+        <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-1 rounded" style="background: var(--secondary-action); color: var(--background);">AI</span> <span class="text-xs px-2 py-1 rounded" style="background: var(--background);">Chatbot</span>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">University FAQ Chatbot</h3>
+        <p class="text-sm mb-4" style="opacity: 0.7;">Chatbot ตอบคำถามเกี่ยวกับมหาวิทยาลัยด้วย NLP</p>
+        <div class="flex gap-2"><span class="text-xs" style="color: var(--secondary-action);">Python</span> <span class="text-xs" style="opacity: 0.5;">•</span> <span class="text-xs" style="color: var(--secondary-action);">NLP</span> <span class="text-xs" style="opacity: 0.5;">•</span> <span class="text-xs" style="color: var(--secondary-action);">LINE API</span>
+        </div>
+       </div>
+      </div><!-- Project 5 -->
+      <div class="rounded-2xl overflow-hidden card-hover" style="background: var(--secondary-surface);">
+       <div class="h-40 flex items-center justify-center text-6xl" style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(236, 72, 153, 0.3));">
+        📱
+       </div>
+       <div class="p-5">
+        <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-1 rounded" style="background: var(--primary-action);">Mobile</span> <span class="text-xs px-2 py-1 rounded" style="background: var(--background);">Flutter</span>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Campus Navigator</h3>
+        <p class="text-sm mb-4" style="opacity: 0.7;">แอปนำทางในมหาวิทยาลัยพร้อมระบบค้นหาห้องเรียน</p>
+        <div class="flex gap-2"><span class="text-xs" style="color: var(--secondary-action);">Flutter</span> <span class="text-xs" style="opacity: 0.5;">•</span> <span class="text-xs" style="color: var(--secondary-action);">Firebase</span> <span class="text-xs" style="opacity: 0.5;">•</span> <span class="text-xs" style="color: var(--secondary-action);">Maps</span>
+        </div>
+       </div>
+      </div><!-- Project 6 - Hackathon -->
+      <div class="rounded-2xl overflow-hidden card-hover" style="background: var(--secondary-surface); border: 1px solid var(--primary-action);">
+       <div class="h-40 flex items-center justify-center text-6xl" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(34, 211, 238, 0.4));">
+        🏆
+       </div>
+       <div class="p-5">
+        <div class="flex items-center gap-2 mb-2"><span class="text-xs px-2 py-1 rounded" style="background: linear-gradient(90deg, var(--primary-action), var(--secondary-action));">Hackathon Winner</span>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">HealthCare Connect</h3>
+        <p class="text-sm mb-4" style="opacity: 0.7;">แพลตฟอร์มเชื่อมต่อผู้ป่วยกับบริการสุขภาพ - Angel Hack 2023</p>
+        <div class="flex gap-2"><span class="text-xs" style="color: var(--secondary-action);">Vue.js</span> <span class="text-xs" style="opacity: 0.5;">•</span> <span class="text-xs" style="color: var(--secondary-action);">Express</span> <span class="text-xs" style="opacity: 0.5;">•</span> <span class="text-xs" style="color: var(--secondary-action);">PostgreSQL</span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Contact Section -->
+   <section id="contact" class="py-16 px-4" style="background: var(--secondary-surface);">
+    <div class="max-w-4xl mx-auto text-center">
+     <h2 class="text-3xl font-bold mb-4"><span class="gradient-text">ติดต่อ</span> ผม</h2>
+     <p class="mb-8" style="opacity: 0.7;">สนใจร่วมงาน หรือมีคำถาม สามารถติดต่อได้เลยครับ!</p>
+     <div class="grid sm:grid-cols-3 gap-4 mb-8"><a id="contact-email-link" href="mailto:example@email.com" class="p-6 rounded-2xl card-hover flex flex-col items-center gap-3" style="background: var(--background);">
+       <div class="w-12 h-12 rounded-full flex items-center justify-center text-2xl" style="background: var(--primary-action);">
+        📧
+       </div><span class="font-medium">Email</span> <span id="contact-email-text" class="text-sm" style="color: var(--secondary-action);">example@email.com</span> </a> <a id="contact-phone-link" href="tel:0xxxxxxxxx" class="p-6 rounded-2xl card-hover flex flex-col items-center gap-3" style="background: var(--background);">
+       <div class="w-12 h-12 rounded-full flex items-center justify-center text-2xl" style="background: var(--secondary-action); color: var(--background);">
+        📱
+       </div><span class="font-medium">Phone</span> <span id="contact-phone-text" class="text-sm" style="color: var(--secondary-action);">0xx-xxx-xxxx</span> </a> <a id="contact-github-link" href="https://github.com" target="_blank" rel="noopener noreferrer" class="p-6 rounded-2xl card-hover flex flex-col items-center gap-3" style="background: var(--background);">
+       <div class="w-12 h-12 rounded-full flex items-center justify-center text-2xl" style="background: var(--primary-action);">
+        <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+        </svg>
+       </div><span class="font-medium">GitHub</span> <span id="contact-github-text" class="text-sm" style="color: var(--secondary-action);">github.com/username</span> </a>
+     </div>
+     <p class="text-sm" style="opacity: 0.5;">พร้อมเริ่มงาน: ทันที | สถานที่: กรุงเทพฯ หรือ Remote</p>
+    </div>
+   </section><!-- Footer -->
+   <footer class="py-6 px-4 text-center" style="background: var(--background);">
+    <p class="text-sm" style="opacity: 0.5;">© 2024 Portfolio. สร้างด้วย ❤️</p>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      profile_name: 'นายตัวอย่าง ใจดี',
+      profile_title: 'Software Developer Intern',
+      profile_bio: 'นักศึกษาชั้นปีที่ 3 สาขาวิศวกรรมคอมพิวเตอร์ หลงใหลในการสร้างสรรค์เทคโนโลยี มีประสบการณ์แข่งขันหุ่นยนต์ตั้งแต่มัธยม และพัฒนาโปรเจคหลากหลาย',
+      contact_email: 'example@email.com',
+      contact_phone: '0xx-xxx-xxxx',
+      contact_github: 'github.com/username',
+      background_color: '#0a0a0f',
+      surface_color: '#16161d',
+      text_color: '#e4e4e7',
+      primary_action: '#6366f1',
+      secondary_action: '#22d3ee'
+    };
+
+    async function onConfigChange(config) {
+      // Update text content
+      document.getElementById('hero-name').textContent = config.profile_name || defaultConfig.profile_name;
+      document.getElementById('hero-title').textContent = config.profile_title || defaultConfig.profile_title;
+      document.getElementById('hero-bio').textContent = config.profile_bio || defaultConfig.profile_bio;
+      
+      // Update contact info
+      const email = config.contact_email || defaultConfig.contact_email;
+      const phone = config.contact_phone || defaultConfig.contact_phone;
+      const github = config.contact_github || defaultConfig.contact_github;
+      
+      document.getElementById('contact-email-text').textContent = email;
+      document.getElementById('contact-email-link').href = `mailto:${email}`;
+      
+      document.getElementById('contact-phone-text').textContent = phone;
+      document.getElementById('contact-phone-link').href = `tel:${phone.replace(/-/g, '')}`;
+      
+      document.getElementById('contact-github-text').textContent = github;
+      const githubUrl = github.startsWith('http') ? github : `https://${github}`;
+      document.getElementById('contact-github-link').href = githubUrl;
+      
+      // Update colors
+      const root = document.documentElement;
+      root.style.setProperty('--background', config.background_color || defaultConfig.background_color);
+      root.style.setProperty('--secondary-surface', config.surface_color || defaultConfig.surface_color);
+      root.style.setProperty('--text-color', config.text_color || defaultConfig.text_color);
+      root.style.setProperty('--primary-action', config.primary_action || defaultConfig.primary_action);
+      root.style.setProperty('--secondary-action', config.secondary_action || defaultConfig.secondary_action);
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => { config.background_color = value; window.elementSdk.setConfig({ background_color: value }); }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => { config.surface_color = value; window.elementSdk.setConfig({ surface_color: value }); }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => { config.text_color = value; window.elementSdk.setConfig({ text_color: value }); }
+          },
+          {
+            get: () => config.primary_action || defaultConfig.primary_action,
+            set: (value) => { config.primary_action = value; window.elementSdk.setConfig({ primary_action: value }); }
+          },
+          {
+            get: () => config.secondary_action || defaultConfig.secondary_action,
+            set: (value) => { config.secondary_action = value; window.elementSdk.setConfig({ secondary_action: value }); }
+          }
+        ],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['profile_name', config.profile_name || defaultConfig.profile_name],
+        ['profile_title', config.profile_title || defaultConfig.profile_title],
+        ['profile_bio', config.profile_bio || defaultConfig.profile_bio],
+        ['contact_email', config.contact_email || defaultConfig.contact_email],
+        ['contact_phone', config.contact_phone || defaultConfig.contact_phone],
+        ['contact_github', config.contact_github || defaultConfig.contact_github]
+      ]);
+    }
+
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.add('hidden');
+      });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Initialize SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bc5f0758280d32a',t:'MTc2ODE1MDUwMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
