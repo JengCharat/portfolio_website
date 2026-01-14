@@ -1,6 +1,17 @@
 import Navbar from "./components/Navbar"
 import Image from "next/image"
 export default function Home(){
+    
+    const mathayom_certification = [
+      { name: 'About', href: '#', current: true },
+      { name: 'Skill', href: '#', current: false },
+      { name: 'Certificate', href: '#', current: false },
+      { name: 'Project', href: '#', current: false },
+      { name: 'Contact',href:'',current:false},
+      { name: 'Contact',href:'',current:false},
+      { name: 'Contact',href:'',current:false},
+      { name: 'Contact',href:'',current:false}
+    ]
     return (
         <>
             <Navbar/>
@@ -39,7 +50,6 @@ export default function Home(){
 
             <div>
             <h1 className="text-xl text-white flex justify-center m-5">ทักษะและความสามารถ</h1>
-                <div className="">
                         <div className="grid grid-cols-1 grid-rows-2 gap-5 md:grid-cols-2">
                             <div className="row-span-2 border border-white">
                                 <h1 className="text-white text-xl">Technical Skills</h1>
@@ -81,6 +91,31 @@ export default function Home(){
                                 </div>
                             </div>
                         </div>
+            </div>
+            <div>
+                <div className="flex flex-col flex-2 items-center m-5">
+                    <h1 className="text-2xl text-white">เกียรติบัตร & รางวัล</h1>
+                    <h1 className="text-xl text-white">ผลงานตั้งแต่มัธยมศึกษาจนถึงระดับมหาวิทยาลัย</h1>
+                </div>
+                <div>
+                    <h1 className="text-white text-xl">มัธยมศึกษา - การแข่งขันหุ่นยนต์ & โครงงาน</h1>
+                    <div className="flex gap-4 overflow-x-auto whitespace-nowrap">
+                            {mathayom_certification.map((item)=>(
+                               <div className="min-w-[200px] bg-blue-500 text-white p-4 rounded">
+                                    <h1 className="text-2xl text-white">{item.name}</h1>
+                               </div> 
+                            ))}
+                    </div>
+                </div>
+                <div>
+                    <h1 className="text-white text-xl">มหาวิทยาลัย - Hackathon & Competition</h1>
+                    <div className="flex gap-4 overflow-x-auto whitespace-nowrap">
+                            {mathayom_certification.map((item)=>(
+                               <div className="min-w-[200px] bg-blue-500 text-white p-4 rounded">
+                                    <h1 className="text-2xl text-white">{item.name}</h1>
+                               </div> 
+                            ))}
+                    </div>
                 </div>
             </div>
         </>
