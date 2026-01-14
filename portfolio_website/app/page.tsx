@@ -92,8 +92,8 @@ export default function Home(){
                             </div>
                         </div>
             </div>
-            <div>
-                <div className="flex flex-col flex-2 items-center m-5">
+            <div className="m-5">
+                <div className="flex flex-col flex-2 items-center">
                     <h1 className="text-2xl text-white">เกียรติบัตร & รางวัล</h1>
                     <h1 className="text-xl text-white">ผลงานตั้งแต่มัธยมศึกษาจนถึงระดับมหาวิทยาลัย</h1>
                 </div>
@@ -116,6 +116,19 @@ export default function Home(){
                                </div> 
                             ))}
                     </div>
+                </div>
+            </div>
+            <div className="m-5">
+                <div className="flex flex-col flex-1 items-center">
+                    <h1 className="text-3xl text-white">โปรเจค ที่น่าสนใจ</h1>
+                    <h1 className="text-xl text-white">ผลงานที่คัดสรรมาแสดง</h1>
+                </div>
+                <div className="grid gap-4 grid-cols-[repeat(auto-fit,minmax(250px,1fr))]">
+                            {mathayom_certification.map((item)=>(
+                               <div className="bg-blue-500 text-white p-4 rounded">
+                                    <h1 className="text-2xl text-white">{item.name}</h1>
+                               </div> 
+                            ))}
                 </div>
             </div>
         </>
