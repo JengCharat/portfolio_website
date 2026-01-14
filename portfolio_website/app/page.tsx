@@ -12,6 +12,12 @@ export default function Home(){
       { name: 'Contact',href:'',current:false},
       { name: 'Contact',href:'',current:false}
     ]
+
+    const contact = [
+      { name: 'jeng@gmail.com', href: '#', current: true },
+      { name: 'Skill', href: '#', current: false },
+      { name: 'Certificate', href: '#', current: false },
+    ]
     return (
         <>
             <Navbar/>
@@ -129,6 +135,25 @@ export default function Home(){
                                     <h1 className="text-2xl text-white">{item.name}</h1>
                                </div> 
                             ))}
+                </div>
+            </div>
+            <div>
+                <div className="flex flex-col flex-1 items-center">
+                    <h1 className="text-2xl text-white">ติดต่อ ผม</h1>
+                    <h1 className="text-2xl text-white">สนใจร่วมงาน หรือมีคำถาม สามารถติดต่อได้เลยครับ!</h1>
+                </div>
+                <div className="grid grid-cols-1  md:grid-cols-3 border border-white text-center">
+                    <div>
+                        ้ <h1 className="text-2xl text-white">email</h1>
+                    </div>
+
+                    <div>
+                        ้ <h1 className="text-2xl text-white">phone</h1>
+                    </div>
+
+                    <div>
+                        ้ <h1 className="text-2xl text-white">github</h1>
+                    </div>
                 </div>
             </div>
         </>
