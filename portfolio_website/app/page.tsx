@@ -1,23 +1,49 @@
 import Navbar from "./components/Navbar"
 import Image from "next/image"
+type ContactItem = {
+    name:string,
+    detail?:string,
+    img:string
+}
+type CertificateItem = {
+    name:string,
+    detail:string,
+    img:string
+}
+type CollegeActivityItem = {
+    name:string,
+    detail:string,
+    img:string
+}
+type MyProjectItem = {
+    name:string,
+    detail:string,
+    img:string
+}
 export default function Home(){
     
-    const mathayom_certification = [
-      { name: 'About', href: '#', current: true },
-      { name: 'Skill', href: '#', current: false },
-      { name: 'Certificate', href: '#', current: false },
-      { name: 'Project', href: '#', current: false },
-      { name: 'Contact',href:'',current:false},
-      { name: 'Contact',href:'',current:false},
-      { name: 'Contact',href:'',current:false},
-      { name: 'Contact',href:'',current:false}
+    const mathayom_certification:CertificateItem[] = [
+      { name: 'certification 1', detail:'string',img:'123'},
+      { name: 'certification 2', detail:'string',img:'123'},
+      { name: 'certification 3', detail:'string',img:'123'},
+    ]
+    const college_activity:CollegeActivityItem[] = [
+        {name:'activity 1',detail:'hackathon',img:'123'},
+        {name:'activity 2',detail:'hackathon',img:'123'}
+
     ]
 
-    const contact = [
-      { name: 'jeng@gmail.com', href: '#', current: true },
-      { name: 'Skill', href: '#', current: false },
-      { name: 'Certificate', href: '#', current: false },
+    const myproject:MyProjectItem[] = [
+        {name:'project 1',detail:'hackathon',img:'123'},
+        {name:'project 2',detail:'hackathon',img:'123'}
+
     ]
+    const contact:ContactItem[] = [
+      { name: 'phone', detail: '0886707555', img: '123' },
+      { name: 'email', detail: 'Kaewpetcharat.s@kkumail.com', img: '123'},
+      { name: 'github', detail: 'jengcharat', img: '123' },
+    ]
+    
     return (
         <>
             <Navbar/>
@@ -106,8 +132,8 @@ export default function Home(){
                 <div>
                     <h1 className="text-white text-xl">มัธยมศึกษา - การแข่งขันหุ่นยนต์ & โครงงาน</h1>
                     <div className="flex gap-4 overflow-x-auto whitespace-nowrap">
-                            {mathayom_certification.map((item)=>(
-                               <div className="min-w-[200px] bg-blue-500 text-white p-4 rounded">
+                            {mathayom_certification.map((item,index)=>(
+                               <div key={index} className="min-w-[200px] bg-blue-500 text-white p-4 rounded">
                                     <h1 className="text-2xl text-white">{item.name}</h1>
                                </div> 
                             ))}
@@ -116,8 +142,8 @@ export default function Home(){
                 <div>
                     <h1 className="text-white text-xl">มหาวิทยาลัย - Hackathon & Competition</h1>
                     <div className="flex gap-4 overflow-x-auto whitespace-nowrap">
-                            {mathayom_certification.map((item)=>(
-                               <div className="min-w-[200px] bg-blue-500 text-white p-4 rounded">
+                            {college_activity.map((item,index)=>(
+                               <div key={index} className="min-w-[200px] bg-blue-500 text-white p-4 rounded">
                                     <h1 className="text-2xl text-white">{item.name}</h1>
                                </div> 
                             ))}
@@ -130,8 +156,8 @@ export default function Home(){
                     <h1 className="text-xl text-white">ผลงานที่คัดสรรมาแสดง</h1>
                 </div>
                 <div className="grid gap-4 grid-cols-[repeat(auto-fit,minmax(250px,1fr))]">
-                            {mathayom_certification.map((item)=>(
-                               <div className="bg-blue-500 text-white p-4 rounded">
+                            {myproject.map((item,index)=>(
+                               <div key={index} className="bg-blue-500 text-white p-4 rounded">
                                     <h1 className="text-2xl text-white">{item.name}</h1>
                                </div> 
                             ))}
@@ -143,17 +169,12 @@ export default function Home(){
                     <h1 className="text-2xl text-white">สนใจร่วมงาน หรือมีคำถาม สามารถติดต่อได้เลยครับ!</h1>
                 </div>
                 <div className="grid grid-cols-1  md:grid-cols-3 border border-white text-center">
-                    <div>
-                        ้ <h1 className="text-2xl text-white">email</h1>
-                    </div>
-
-                    <div>
-                        ้ <h1 className="text-2xl text-white">phone</h1>
-                    </div>
-
-                    <div>
-                        ้ <h1 className="text-2xl text-white">github</h1>
-                    </div>
+                    {contact.map((item,index)=>(
+                            <div key={index}>
+                                ้ <h1 className="text-2xl text-white">{item.name}</h1>
+                                ้ {item.detail && <h1 className="text-2xl text-white">{item.detail}</h1>}
+                            </div>
+                    ))}
                 </div>
             </div>
         </>
