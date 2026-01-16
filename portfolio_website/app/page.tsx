@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar"
 import Image from "next/image"
+import Link from "next/link";
 type ContactItem = {
     name:string,
     detail?:string,
@@ -20,6 +21,10 @@ type MyProjectItem = {
     detail:string,
     img:string
 }
+type TechnicalSkilItem = {
+    skill:string
+}
+
 export default function Home(){
     
     const mathayom_certification:CertificateItem[] = [
@@ -43,11 +48,18 @@ export default function Home(){
       { name: 'email', detail: 'Kaewpetcharat.s@kkumail.com', img: '123'},
       { name: 'github', detail: 'jengcharat', img: '123' },
     ]
+    const technicalskill:TechnicalSkilItem[] = [
+        {skill:'html'},
+        {skill:'css'},
+        {skill:'javascript'},
+        {skill:'laravel'},
+
+    ]
     
     return (
         <>
             <Navbar/>
-            <div className="flex flex-col flex-1 md:flex-row md:items-start justify-center items-center m-5">
+            <div id="about" className="flex flex-col flex-1 md:flex-row md:items-start justify-center items-center m-5">
                 <div>
                      <Image className="relative rounded-full md:w-100"
                           src="/images/my-profile-img.jpg"
@@ -57,16 +69,25 @@ export default function Home(){
                     />  
                 </div> 
                 <div className="flex flex-col flex-1  items-center m-5 text-center md:items-start md:text-start">
-                  <h3 className="text-white">Hello I'm</h3>
+                    <h3 className="text-white text-xl">
+                      สวัสดีครับ{" "}
+                      <span className="text-red-500">
+                        ผมเจ๋ง
+                      </span>
+                    </h3>
                   <h1 className="text-white text-3xl font-bold">
-                    Kaewpetcharat Sisan
+                    แก้วเพ็ชรัตน์ สีสันต์
                   </h1>
                   <h1 className="text-white text-xl">
                     นักศึกษาชั้นปีที่ 3 สาขาวิทยาลัยการคอมพิวเตอร์คอมพิวเตอร์ สามขาวิทยาการคอมพิวเตอร์ หลงใหลในการสร้างสรรค์เทคโนโลยี มีประสบการณ์แข่งขันหุ่นยนต์ตั้งแต่มัธยม และพัฒนาโปรเจคหลากหลาย
                   </h1>
-                  <div>
-                        <button type="button" className="mt-5 rounded-3xl text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">Purple to Blue</button>
-                        <button type="button" className="ml-5 rounded-3xl text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">Purple to Blue</button>
+                  <div className="m-5 grid gap-5 grid-cols-2">
+                    <a href="#myproject" className="text-xl text-white border border-blue-800 bg-blue-800 p-5 rounded-xl">
+                        ดูผลงาน
+                    </a>
+                    <a href="#contact" className="text-xl text-white border border-blue-800 p-5 rounded-xl">
+                      ติดต่อผม
+                    </a>
                   </div>
 
 
@@ -81,19 +102,14 @@ export default function Home(){
             </div>
 
             <div>
-            <h1 className="text-xl text-white flex justify-center m-5">ทักษะและความสามารถ</h1>
+            <h1 id="skill" className="text-xl text-white flex justify-center m-5">ทักษะและความสามารถ</h1>
                         <div className="grid grid-cols-1 grid-rows-2 gap-5 md:grid-cols-2">
                             <div className="row-span-2 border border-white">
                                 <h1 className="text-white text-xl">Technical Skills</h1>
                                 <div className="flex flex-wrap gap-5 p-5 text-white rounded-xl">
-                                        <h1 className="text-white text-xl"> test</h1>
-                                        <h1 className="text-white text-xl"> test</h1>
-                                        <h1 className="text-white text-xl"> test</h1>
-                                        <h1 className="text-white text-xl"> test</h1>
-                                        <h1 className="text-white text-xl"> test</h1>
-                                        <h1 className="text-white text-xl"> test</h1>
-                                        <h1 className="text-white text-xl"> test</h1>
-                                        <h1 className="text-white text-xl"> test</h1>
+                                        {technicalskill.map((item,index)=>(
+                                            <h1 key = {index} className="text-white text-xl">{item.skill}</h1>
+                                        ))}
                                 </div>
                             </div>
                             <div className="border border-white">
@@ -124,7 +140,7 @@ export default function Home(){
                             </div>
                         </div>
             </div>
-            <div className="m-5">
+            <div id="certificate" className="m-5">
                 <div className="flex flex-col flex-2 items-center">
                     <h1 className="text-2xl text-white">เกียรติบัตร & รางวัล</h1>
                     <h1 className="text-xl text-white">ผลงานตั้งแต่มัธยมศึกษาจนถึงระดับมหาวิทยาลัย</h1>
@@ -150,7 +166,7 @@ export default function Home(){
                     </div>
                 </div>
             </div>
-            <div className="m-5">
+            <div id = "myproject" className="m-5">
                 <div className="flex flex-col flex-1 items-center">
                     <h1 className="text-3xl text-white">โปรเจค ที่น่าสนใจ</h1>
                     <h1 className="text-xl text-white">ผลงานที่คัดสรรมาแสดง</h1>
@@ -163,7 +179,7 @@ export default function Home(){
                             ))}
                 </div>
             </div>
-            <div>
+            <div id="contact">
                 <div className="flex flex-col flex-1 items-center">
                     <h1 className="text-2xl text-white">ติดต่อ ผม</h1>
                     <h1 className="text-2xl text-white">สนใจร่วมงาน หรือมีคำถาม สามารถติดต่อได้เลยครับ!</h1>
