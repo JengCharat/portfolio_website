@@ -24,6 +24,9 @@ type MyProjectItem = {
 type TechnicalSkilItem = {
     skill:string
 }
+type ToolAndPlatFormItem = {
+    skill:string
+}
 
 export default function Home(){
     
@@ -53,7 +56,20 @@ export default function Home(){
         {skill:'css'},
         {skill:'javascript'},
         {skill:'laravel'},
+        {skill:'next js'},
+        {skill:'express'},
+        {skill:'mysql'},
+        {skill:'kotlin'},
+        {skill:'c++'},
+        {skill:'java'},
+        {skill:'java springboot'},
 
+    ]
+    const toolandplatform:ToolAndPlatFormItem[] = [
+        {skill:"neovim"},
+        {skill:"git"},
+        {skill:"lazygit"},
+        {skill:"postman"},
     ]
     
     return (
@@ -115,14 +131,9 @@ export default function Home(){
                             <div className="border border-white">
                                 <h1 className="text-white text-xl">Tools & Platforms</h1>
                                 <div className="flex flex-wrap gap-5 p-5 text-white rounded-xl">
-                                        <h1 className="text-white text-xl"> test</h1>
-                                        <h1 className="text-white text-xl"> test</h1>
-                                        <h1 className="text-white text-xl"> test</h1>
-                                        <h1 className="text-white text-xl"> test</h1>
-                                        <h1 className="text-white text-xl"> test</h1>
-                                        <h1 className="text-white text-xl"> test</h1>
-                                        <h1 className="text-white text-xl"> test</h1>
-                                        <h1 className="text-white text-xl"> test</h1>
+                                        {toolandplatform.map((item,index)=>(
+                                            <h1 key = {index} className="text-white text-xl">{item.skill}</h1>
+                                        ))}
                                 </div>
                             </div>
                             <div className="border border-white">
