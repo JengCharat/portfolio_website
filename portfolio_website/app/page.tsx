@@ -36,9 +36,14 @@ type SoftSkillItem = {
 export default function Home(){
     
     const mathayom_certification:CertificateItem[] = [
-      { name: 'certification 1', detail:'string',img:'123'},
-      { name: 'certification 2', detail:'string',img:'123'},
-      { name: 'certification 3', detail:'string',img:'123'},
+      { name: 'sila69', detail:'robot follow the line ',img:'/images/certification/silapa69.png'},
+      { name: 'sila69', detail:'robot follow the line ',img:'/images/certification/silapa69.png'},
+      { name: 'sila69', detail:'robot follow the line ',img:'/images/certification/silapa69.png'},
+      { name: 'sila69', detail:'robot follow the line ',img:'/images/certification/silapa69.png'},
+      { name: 'sila69', detail:'robot follow the line ',img:'/images/certification/silapa69.png'},
+      { name: 'sila69', detail:'robot follow the line ',img:'/images/certification/silapa69.png'},
+      { name: 'sila69', detail:'robot follow the line ',img:'/images/certification/silapa69.png'},
+      { name: 'sila69', detail:'robot follow the line ',img:'/images/certification/silapa69.png'},
     ]
     const college_activity:CollegeActivityItem[] = [
         {name:'activity 1',detail:'hackathon',img:'123'},
@@ -175,8 +180,20 @@ export default function Home(){
                     <h1 className="text-white text-xl">มัธยมศึกษา - การแข่งขันหุ่นยนต์ & โครงงาน</h1>
                     <div className="flex gap-4 overflow-x-auto whitespace-nowrap">
                             {mathayom_certification.map((item,index)=>(
-                               <div key={index} className="min-w-[200px] bg-blue-500 text-white p-4 rounded">
+                               <div key={index} className="min-w-[200px] bg-blue-500 text-white p-4">
                                     <h1 className="text-2xl text-white">{item.name}</h1>
+                                    <div>
+                                         <Image className="relative md:w-100"
+                                              src={item.img}
+                                              alt={item.name}
+                                              width={200}
+                                              height={200}
+                                        />  
+                                    </div> 
+                                    <div>
+                                        <h1 className="text-xl text-white">{item.detail}</h1>
+                                    </div>
+
                                </div> 
                             ))}
                     </div>
