@@ -1,6 +1,8 @@
+import { collectMeta } from "next/dist/build/utils";
 import Navbar from "./components/Navbar"
 import Image from "next/image"
 import Link from "next/link";
+import { Certificate } from "node:crypto";
 type ContactItem = {
     name:string,
     detail?:string,
@@ -114,11 +116,23 @@ export default function Home(){
 
 
 
-                  <div className="columns-2 m-5 md:flex">
-                    <h1 className="border rounded-xl accent-red-600 text-white text-xl p-3 md:ml-5">test</h1>
-                    <h1 className="border rounded-xl accent-red-600 text-white text-xl p-3 md:ml-5">test</h1>
-                    <h1 className="border rounded-xl accent-red-600 text-white text-xl p-3 md:ml-5">test</h1>
-                    <h1 className="border rounded-xl accent-red-600 text-white text-xl p-3 md:ml-5">test</h1>
+                  <div className="grid grid-cols-2 gap-5 md:flex ">
+                    <div className="items-center border border-white rounded-xl p-3">
+                        <h1 className="text-white text-xl">my certificate</h1>
+                        <h1 className="text-white text-xl p-3 md:ml-5">{mathayom_certification.length}</h1>
+                    </div>
+                    <div className="items-center border border-white rounded-xl p-3">
+                        <h1 className="text-white text-xl">my project</h1>
+                        <h1 className="text-white text-xl p-3 md:ml-5">{myproject.length}</h1>
+                    </div>
+                    <div className="items-center border border-white rounded-xl p-3">
+                        <h1 className="text-white text-xl">my hackathon</h1>
+                        <h1 className="text-white text-xl p-3 md:ml-5">{college_activity.length}</h1>
+                    </div>
+                    <div className="items-center border border-white rounded-xl p-3">
+                        <h1 className="text-white text-xl">my technical skill</h1>
+                        <h1 className="text-white text-xl p-3 md:ml-5">{technicalskill.length}</h1>
+                    </div>
                   </div>
                 </div>
             </div>
