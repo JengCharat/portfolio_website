@@ -27,6 +27,9 @@ type TechnicalSkilItem = {
 type ToolAndPlatFormItem = {
     skill:string
 }
+type SoftSkillItem = {
+    skill:string
+}
 
 export default function Home(){
     
@@ -70,6 +73,9 @@ export default function Home(){
         {skill:"git"},
         {skill:"lazygit"},
         {skill:"postman"},
+    ]
+    const softskill:SoftSkillItem[] = [
+        {skill:"agile"}
     ]
     
     return (
@@ -139,14 +145,9 @@ export default function Home(){
                             <div className="border border-white">
                                 <h1 className="text-white text-xl">Soft Skills</h1>
                                 <div className="flex flex-wrap gap-5 p-5 text-white rounded-xl">
-                                        <h1 className="text-white text-xl"> test</h1>
-                                        <h1 className="text-white text-xl"> test</h1>
-                                        <h1 className="text-white text-xl"> test</h1>
-                                        <h1 className="text-white text-xl"> test</h1>
-                                        <h1 className="text-white text-xl"> test</h1>
-                                        <h1 className="text-white text-xl"> test</h1>
-                                        <h1 className="text-white text-xl"> test</h1>
-                                        <h1 className="text-white text-xl"> test</h1>
+                                    {softskill.map((item,index)=>(
+                                        <h1 key={index} className="text-white text-xl">{item.skill}</h1>
+                                    ))}
                                 </div>
                             </div>
                         </div>
