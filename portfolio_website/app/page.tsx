@@ -36,18 +36,62 @@ type SoftSkillItem = {
 export default function Home(){
     
     const mathayom_certification:CertificateItem[] = [
-      { name: 'sila69', detail:'robot follow the line ',img:'/images/certification/silapa69.png'},
-      { name: 'sila69', detail:'robot follow the line ',img:'/images/certification/silapa69.png'},
-      { name: 'sila69', detail:'robot follow the line ',img:'/images/certification/silapa69.png'},
-      { name: 'sila69', detail:'robot follow the line ',img:'/images/certification/silapa69.png'},
-      { name: 'sila69', detail:'robot follow the line ',img:'/images/certification/silapa69.png'},
-      { name: 'sila69', detail:'robot follow the line ',img:'/images/certification/silapa69.png'},
-      { name: 'sila69', detail:'robot follow the line ',img:'/images/certification/silapa69.png'},
-      { name: 'sila69', detail:'robot follow the line ',img:'/images/certification/silapa69.png'},
+      { name: 'แข่งขันหุ่นยนต์ระดับสูง', detail:`
+          แข่งขันหุ่นยนต์ระดับสูงระดับชั้น ม.1 - ม.3
+          (รางวัลเหรียญเงิน)
+          งานศิลปหัตถกรรมนักเรียนระดับชาติ ครั้งที่ 69
+          ปีการศึกษา 2562`
+          ,img:'/images/certification/silapa69-high.png'},
+      { name: 'แข่งหุ่นยนต์ระดับกลาง', detail:`
+          แข่งขันหุ่นยนต์ระดับกลางระดับชั้น ม.1 - ม.3
+          (รางวัลเหรียญทองแดง)
+          งานศิลปหัตถกรรมนักเรียนระดับชาติ ครั้งที่ 69
+          ปีการศึกษา 2562
+          `,img:'/images/certification/silapa69-middle.png'},
+      { name: 'แข่งขันหุ่นยนต์ระผสม', detail:`
+          แข่งขันหุ่นยนต์ระผสมระดับชั้น ม.1 - ม.3
+          (รางวัลเหรียญเงิน)
+          งานศิลปหัตถกรรมนักเรียนระดับชาติ ครั้งที่ 69
+          ปีการศึกษา 2562`
+          ,img:'/images/certification/silapa69-mix.png'},
+      { name: 'แข่งขันหุ่นยนต์ระดับสูง', detail:`
+          แข่งขันหุ่นยนต์ระดับสูงระดับชั้น ม.1 - ม.3
+          (รางวัลเหรียญเงิน)
+          งานศิลปหัตถกรรมนักเรียนระดับชาติ ครั้งที่ 68
+          ปีการศึกษา 2561
+          `,img:'/images/certification/silapa68-high.png'},
+      { name: 'buffolo robot', detail:`
+        เข้าร่วมแข่งขันหุ่นยนต์ควายตู้ระดับอุดมศึกษาในงานวันเทคโนโลยีวิศวกรรม มหาวิทยาลัยอุบลราชธานี คณะวิศวกรรมศาสตร์
+          `,img:'/images/certification/buffolo.png'},
+      { name: 'science project', detail:`
+          ประกวดโครงงานวิทยาศาสตร์ 
+          สิ่งประดิษฐ์ทางวิทยาศาสตร์
+          รางวัลชมเชย
+          (มหาวิทยาลัยราชภัฏอุบลราชธานี)`,img:'/images/certification/science_project.png'},
+      { name: 'ubu smart assistance', detail:`
+            แข่งขันประกวดโครงงานวิทยาศาสตร์ ระดับมัธยมศึกษาตอนต้น สาขาวิทยาศาสตรประยุกต์
+            (เหรียญทองแดง)
+            มหาวิยาลัยอุบลราชธานี
+          `,img:'/images/certification/ubu_smart_assistance.png'},
+      { name: 'cira core training', detail:`
+          ผ่านการอบรมเชิงปฎิบัติการการประยุกต์ใช้โปรแกรมcira coreสำหรับสร้างสรรค์โครงงานสิ่งประดิษฐ์และนวัตกรรมอัจฉริยะ
+          `,img:'/images/certification/cira_core_training.png'},
+      { name: 'micro controller training', detail:`
+          เข้าร่วมและผ่านการอบรมหลักสูตรการสร้างเครื่องมือวัดปริมาณต่างๆสำหรับงานวิทยาศาสตร์ด้วยบอร์ดไมโครคอนโทรลเลอร์
+          `,img:'/images/certification/microcontroller_training.png'},
+      { name: 'ร่วมกับผู้บริหารสถานศึกษา ครู และบุคคลากรทางการศึกษาพัฒนาสถานศึกษา', detail:`
+          ร่วมกับผู้บริหารสถานศึกษา ครู และบุคคลากรทางการศึกษาพัฒนาสถานศึกษาจนได้รับรางวัลพระราชทาน ในโครงการคัดเลือกนักเรียนและสถานศึกษา ขนาดใหญ่เพื่อรับรางวัลพระราชทานประจำปีการศึกษา 2561
+          `,img:'/images/certification/school.png'},
+      { name: 'c language training', detail:`
+          ผ่านการอบรมการเขียนโปรแกรมภาษา c สำหรับคอมพิวเติอร์โอลิมปิกวิชาการ ปี 2561 ณ โรงเรียนลือคำหาญวารินชำราบ
+          `,img:'/images/certification/c_lang_training.png'},
+      { name: 'microcontroller for farm', detail:`
+          ผ่านการอบรมเชิงปฎิบัติการประยุกต์ใช้ไมโครคอลโทรเลอร์สร้างนวัตกรรมกับระบบฟาร์มอัจฉริยะ
+          `,img:'/images/certification/farm_microcontroller.png'},
     ]
     const college_activity:CollegeActivityItem[] = [
-        {name:'activity 1',detail:'hackathon',img:'123'},
-        {name:'activity 2',detail:'hackathon',img:'123'}
+        {name:'TA',detail:'teacher assistant',img:'123'},
+        {name:'เข้าร่วมคัดตัวicpcของคณะ',detail:'icpc',img:'123'}
 
     ]
 
