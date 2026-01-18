@@ -52,8 +52,13 @@ export default function Home(){
     ]
 
     const myproject:MyProjectItem[] = [
-        {name:'project 1',detail:'hackathon',img:'123'},
-        {name:'project 2',detail:'hackathon',img:'123'}
+        {name:'TBL HACKATHON',detail:'hackathon',img:'/images/myproject/foundly-1.png'},
+        {name:'kku ของหาย',detail:'web app project',img:'/images/myproject/foundly-1.png'},
+        {name:'foundly',detail:'web app project',img:'/images/myproject/foundly-1.png'},
+        {name:'TRAVEL CLUSTER',detail:'krungsri hackathon',img:'/images/myproject/foundly-1.png'},
+        {name:'petfolio',detail:'data serialization project',img:'/images/myproject/foundly-1.png'},
+        {name:'vilapark',detail:'web app project',img:'/images/myproject/foundly-1.png'},
+
 
     ]
     const contact:ContactItem[] = [
@@ -216,8 +221,20 @@ export default function Home(){
                 </div>
                 <div className="grid gap-4 grid-cols-[repeat(auto-fit,minmax(250px,1fr))]">
                             {myproject.map((item,index)=>(
-                               <div key={index} className="bg-blue-500 text-white p-4 rounded">
+                               <div key={index} className="min-w-[200px] bg-blue-500 text-white p-4">
                                     <h1 className="text-2xl text-white">{item.name}</h1>
+                                    <div>
+                                         <Image className="relative md:w-100"
+                                              src={item.img}
+                                              alt={item.name}
+                                              width={200}
+                                              height={200}
+                                        />  
+                                    </div> 
+                                    <div>
+                                        <h1 className="text-xl text-white">{item.detail}</h1>
+                                    </div>
+
                                </div> 
                             ))}
                 </div>
