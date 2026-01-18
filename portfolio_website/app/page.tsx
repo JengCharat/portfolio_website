@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Certificate } from "node:crypto";
 type ContactItem = {
     name:string,
-    detail?:string,
+    detail?:string[],
     img:string
 }
 type CertificateItem = {
@@ -21,7 +21,7 @@ type CollegeActivityItem = {
 type MyProjectItem = {
     name:string,
     detail:string,
-    img:string
+    img:string[]
 }
 type TechnicalSkilItem = {
     skill:string
@@ -96,19 +96,19 @@ export default function Home(){
     ]
 
     const myproject:MyProjectItem[] = [
-        {name:'TBL HACKATHON',detail:'hackathon',img:'/images/myproject/foundly-1.png'},
-        {name:'kku ของหาย',detail:'web app project',img:'/images/myproject/foundly-1.png'},
-        {name:'foundly',detail:'web app project',img:'/images/myproject/foundly-1.png'},
-        {name:'TRAVEL CLUSTER',detail:'krungsri hackathon',img:'/images/myproject/foundly-1.png'},
-        {name:'petfolio',detail:'data serialization project',img:'/images/myproject/foundly-1.png'},
-        {name:'vilapark',detail:'web app project',img:'/images/myproject/foundly-1.png'},
+        {name:'TBL HACKATHON',detail:'hackathon',img:['/images/myproject/tbl_hackathon/4.png']},
+        {name:'kku ของหาย',detail:'web app project',img:['/images/myproject/kku_missing/1.png']},
+        {name:'foundly',detail:'web app project',img:['/images/myproject/foundly/1.png']},
+        {name:'TRAVEL CLUSTER',detail:'krungsri hackathon',img:['/images/myproject/travelcluster/4.png']},
+        {name:'petfolio',detail:'data serialization project',img:['/images/myproject/petfolio/1.png']},
+        {name:'vilapark',detail:'web app project',img:['/images/myproject/vilapark/1.png']},
 
 
     ]
     const contact:ContactItem[] = [
-      { name: 'phone', detail: '0886707555', img: '123' },
-      { name: 'email', detail: 'Kaewpetcharat.s@kkumail.com', img: '123'},
-      { name: 'github', detail: 'jengcharat', img: '123' },
+      { name: 'phone', detail: ['0886707555'], img: '123' },
+      { name: 'email', detail: ['kaewpetcharat.sisan@gmail.com','kaewpetcharat.s@kkumail.com'], img: '123'},
+      { name: 'github', detail: ['https://github.com/JengCharat'], img: '123' },
     ]
     const technicalskill:TechnicalSkilItem[] = [
         {skill:'html'},
@@ -269,7 +269,7 @@ export default function Home(){
                                     <h1 className="text-2xl text-white">{item.name}</h1>
                                     <div>
                                          <Image className="relative md:w-100"
-                                              src={item.img}
+                                              src={item.img[0]}
                                               alt={item.name}
                                               width={200}
                                               height={200}
