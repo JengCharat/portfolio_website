@@ -1,4 +1,6 @@
+'use client'
 import { collectMeta } from "next/dist/build/utils";
+import { GitHubCalendar } from 'react-github-calendar'
 import Navbar from "./components/Navbar"
 import Image from "next/image"
 import Link from "next/link";
@@ -147,6 +149,12 @@ export default function Home(){
     return (
         <>
             <Navbar/>
+             <GitHubCalendar
+                  username="jengcharat"
+                  blockSize={15}
+                  blockMargin={5}
+                  fontSize={14}
+                />
             <div id="about" className="flex flex-col flex-1 md:flex-row md:items-start justify-center items-center m-5">
                 <div>
                      <Image className="relative rounded-full md:w-100"
