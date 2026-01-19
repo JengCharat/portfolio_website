@@ -91,7 +91,9 @@ export default function Home(){
     ]
     const college_activity:CollegeActivityItem[] = [
         {name:'TA',detail:'teacher assistant',img:'123'},
-        {name:'เข้าร่วมคัดตัวicpcของคณะ',detail:'icpc',img:'123'}
+        {name:'เข้าร่วมคัดตัวicpcของคณะ',detail:'icpc',img:'123'},
+        {name:'เข้าร่วมkrungsri hackathon',detail:'travel cluster',img:'123'},
+        {name:'tbl hackathon',detail:'รางวัลที่ 3',img:'123'},
 
     ]
 
