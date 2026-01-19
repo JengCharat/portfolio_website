@@ -1,21 +1,16 @@
 'use client'
-import { collectMeta } from "next/dist/build/utils";
 import { GitHubCalendar } from 'react-github-calendar'
 import Navbar from "./components/Navbar"
 import Image from "next/image"
-import Link from "next/link";
-import { Certificate } from "node:crypto";
+import { useState } from "react"
+import { FaPhone, FaEnvelope, FaGithub, FaTimes } from "react-icons/fa"
+
 type ContactItem = {
     name:string,
     detail?:string[],
     img:string
 }
 type CertificateItem = {
-    name:string,
-    detail:string,
-    img:string
-}
-type CollegeActivityItem = {
     name:string,
     detail:string,
     img:string
@@ -30,10 +25,10 @@ type MyProjectItem = {
     detail:string,
     img:string[]
 }
-type TechnicalSkilItem = {
+type TechnicalSkillItem = {
     skill:string
 }
-type ToolAndPlatFormItem = {
+type ToolAndPlatformItem = {
     skill:string
 }
 type SoftSkillItem = {
@@ -41,281 +36,218 @@ type SoftSkillItem = {
 }
 
 export default function Home(){
+    const [selectedItem, setSelectedItem] = useState<CertificateItem | MyProjectItem | ActivityImageItem | null>(null)
     
     const mathayom_certification:CertificateItem[] = [
-      { name: 'แข่งขันหุ่นยนต์ระดับสูง', detail:`
-          แข่งขันหุ่นยนต์ระดับสูงระดับชั้น ม.1 - ม.3
-          (รางวัลเหรียญเงิน)
-          งานศิลปหัตถกรรมนักเรียนระดับชาติ ครั้งที่ 69
-          ปีการศึกษา 2562`
-          ,img:'/images/certification/silapa69-high.png'},
-      { name: 'แข่งหุ่นยนต์ระดับกลาง', detail:`
-          แข่งขันหุ่นยนต์ระดับกลางระดับชั้น ม.1 - ม.3
-          (รางวัลเหรียญทองแดง)
-          งานศิลปหัตถกรรมนักเรียนระดับชาติ ครั้งที่ 69
-          ปีการศึกษา 2562
-          `,img:'/images/certification/silapa69-middle.png'},
-      { name: 'แข่งขันหุ่นยนต์ระผสม', detail:`
-          แข่งขันหุ่นยนต์ระผสมระดับชั้น ม.1 - ม.3
-          (รางวัลเหรียญเงิน)
-          งานศิลปหัตถกรรมนักเรียนระดับชาติ ครั้งที่ 69
-          ปีการศึกษา 2562`
-          ,img:'/images/certification/silapa69-mix.png'},
-
-      { name: 'การประกวดโครงงานระดับนานาชาติ ในงาน Indonesia Inventors Day 2022 (9th IYIA)', detail:`
-           การประกวดโครงงานระดับนานาชาติ ในงาน Indonesia Inventors Day 2022 (9th IYIA) จากโครงงานเรื่อง The Applicaation of Artificial Intelogence for Analysis of Chillies Diseaes, Nutrient Deficiencies, Pets Detection and Elimination with CIRA CORE Platform
-              หน่วยงานที่จัด : INDONESIAN INVENTION AND INNOVATION PROMOTION ASSOCIATION (INNOPA)
-          วันเวลา สถานที่ 29-31 October 2022 Udayana University Bali,Indonesia
-          `,img:'/images/certification/farm_microcontroller.png'},
-      { name: 'แข่งขันหุ่นยนต์ระดับสูง', detail:`
-          แข่งขันหุ่นยนต์ระดับสูงระดับชั้น ม.1 - ม.3
-          (รางวัลเหรียญเงิน)
-          งานศิลปหัตถกรรมนักเรียนระดับชาติ ครั้งที่ 68
-          ปีการศึกษา 2561
-          `,img:'/images/certification/silapa68-high.png'},
-      { name: 'buffolo robot', detail:`
-        เข้าร่วมแข่งขันหุ่นยนต์ควายตู้ระดับอุดมศึกษาในงานวันเทคโนโลยีวิศวกรรม มหาวิทยาลัยอุบลราชธานี คณะวิศวกรรมศาสตร์
-          `,img:'/images/certification/buffolo.png'},
-      { name: 'science project', detail:`
-          ประกวดโครงงานวิทยาศาสตร์ 
-          สิ่งประดิษฐ์ทางวิทยาศาสตร์
-          รางวัลชมเชย
-          (มหาวิทยาลัยราชภัฏอุบลราชธานี)`,img:'/images/certification/science_project.png'},
-      { name: 'ubu smart assistance', detail:`
-            แข่งขันประกวดโครงงานวิทยาศาสตร์ ระดับมัธยมศึกษาตอนต้น สาขาวิทยาศาสตรประยุกต์
-            (เหรียญทองแดง)
-            มหาวิยาลัยอุบลราชธานี
-          `,img:'/images/certification/ubu_smart_assistance.png'},
-      { name: 'cira core training', detail:`
-          ผ่านการอบรมเชิงปฎิบัติการการประยุกต์ใช้โปรแกรมcira coreสำหรับสร้างสรรค์โครงงานสิ่งประดิษฐ์และนวัตกรรมอัจฉริยะ
-          `,img:'/images/certification/cira_core_training.png'},
-      { name: 'micro controller training', detail:`
-          เข้าร่วมและผ่านการอบรมหลักสูตรการสร้างเครื่องมือวัดปริมาณต่างๆสำหรับงานวิทยาศาสตร์ด้วยบอร์ดไมโครคอนโทรลเลอร์
-          `,img:'/images/certification/microcontroller_training.png'},
-      { name: 'ร่วมกับผู้บริหารสถานศึกษา ครู และบุคคลากรทางการศึกษาพัฒนาสถานศึกษา', detail:`
-          ร่วมกับผู้บริหารสถานศึกษา ครู และบุคคลากรทางการศึกษาพัฒนาสถานศึกษาจนได้รับรางวัลพระราชทาน ในโครงการคัดเลือกนักเรียนและสถานศึกษา ขนาดใหญ่เพื่อรับรางวัลพระราชทานประจำปีการศึกษา 2561
-          `,img:'/images/certification/school.png'},
-      { name: 'c language training', detail:`
-          ผ่านการอบรมการเขียนโปรแกรมภาษา c สำหรับคอมพิวเติอร์โอลิมปิกวิชาการ ปี 2561 ณ โรงเรียนลือคำหาญวารินชำราบ
-          `,img:'/images/certification/c_lang_training.png'},
-      { name: 'microcontroller for farm', detail:`
-          ผ่านการอบรมเชิงปฎิบัติการประยุกต์ใช้ไมโครคอลโทรเลอร์สร้างนวัตกรรมกับระบบฟาร์มอัจฉริยะ
-          `,img:'/images/certification/farm_microcontroller.png'},
+      { name: 'แข่งขันหุ่นยนต์ระดับสูง', detail:'แข่งขันหุ่นยนต์ระดับสูง ม.1-ม.3 (เหรียญเงิน) งานศิลปหัตถกรรมนักเรียนระดับชาติ ครั้งที่ 69 ปี 2562', img:'/images/certification/silapa69-high.png'},
+      { name: 'แข่งหุ่นยนต์ระดับกลาง', detail:'แข่งขันหุ่นยนต์ระดับกลาง ม.1-ม.3 (เหรียญทองแดง) งานศิลปหัตถกรรมนักเรียนระดับชาติ ครั้งที่ 69 ปี 2562', img:'/images/certification/silapa69-middle.png'},
+      { name: 'แข่งขันหุ่นยนต์ระผสม', detail:'แข่งขันหุ่นยนต์ระผสม ม.1-ม.3 (เหรียญเงิน) งานศิลปหัตถกรรมนักเรียนระดับชาติ ครั้งที่ 69 ปี 2562', img:'/images/certification/silapa69-mix.png'},
+      { name: 'ประกวดโครงงานระดับนานาชาติ', detail:'ประกวดโครงงานระดับนานาชาติ Indonesia Inventors Day 2022 (9th IYIA)', img:'/images/certification/farm_microcontroller.png'},
+      { name: 'แข่งขันหุ่นยนต์ระดับสูง', detail:'แข่งขันหุ่นยนต์ระดับสูง ม.1-ม.3 (เหรียญเงิน) งานศิลปหัตถกรรมนักเรียนระดับชาติ ครั้งที่ 68 ปี 2561', img:'/images/certification/silapa68-high.png'},
+      { name: 'buffolo robot', detail:'แข่งขันหุ่นยนต์ควายตู้ระดับอุดมศึกษา มหาวิทยาลัยอุบลราชธานี', img:'/images/certification/buffolo.png'},
+      { name: 'science project', detail:'ประกวดโครงงานวิทยาศาสตร์ สิ่งประดิษฐ์ทางวิทยาศาสตร์ รางวัลชมเชย', img:'/images/certification/science_project.png'},
+      { name: 'ubu smart assistance', detail:'ประกวดโครงงานวิทยาศาสตร์ (เหรียญทองแดง) มหาวิทยาลัยอุบลราชธานี', img:'/images/certification/ubu_smart_assistance.png'},
+      { name: 'cira core training', detail:'อบรมเชิงปฎิบัติการ CIRA Core สำหรับสร้างสรรค์โครงงานนวัตกรรม', img:'/images/certification/cira_core_training.png'},
+      { name: 'micro controller training', detail:'อบรมสร้างเครื่องมือวัดปริมาณต่างๆ ด้วยบอร์ดไมโครคอนโทรลเลอร์', img:'/images/certification/microcontroller_training.png'},
+      { name: 'ร่วมพัฒนาสถานศึกษา', detail:'ร่วมพัฒนาสถานศึกษาจนได้รับรางวัลพระราชทาน ปีการศึกษา 2561', img:'/images/certification/school.png'},
+      { name: 'c language training', detail:'อบรมการเขียนโปรแกรมภาษา C สำหรับคอมพิวเตอร์โอลิมปิกวิชาการ ปี 2561', img:'/images/certification/c_lang_training.png'},
+      { name: 'microcontroller for farm', detail:'อบรมเชิงปฎิบัติการใช้ไมโครคอนโทรลเลอร์สร้างนวัตกรรมฟาร์มอัจฉริยะ', img:'/images/certification/farm_microcontroller.png'},
     ]
+
     const activity_image:ActivityImageItem[] = [
-        {name:'image1',detail:'image1',img:'/images/activity_image/1.png'},
-        {name:'image2',detail:'image3',img:'/images/activity_image/2.png'},
+        {name:'กิจกรรมแข่งขันหุ่นยนต์',detail:'ภาพกิจกรรมการแข่งขันหุ่นยนต์',img:'/images/activity_image/1.png'},
+        {name:'กิจกรรมอบรม',detail:'ภาพกิจกรรมการอบรมเชิงปฏิบัติการ',img:'/images/activity_image/2.png'},
     ]
 
     const myproject:MyProjectItem[] = [
-        {name:'TBL HACKATHON',detail:'hackathon',img:['/images/myproject/tbl_hackathon/4.png']},
+        {name:'TBL HACKATHON',detail:'hackathon project',img:['/images/myproject/tbl_hackathon/4.png']},
         {name:'kku ของหาย',detail:'web app project',img:['/images/myproject/kku_missing/1.png']},
         {name:'foundly',detail:'web app project',img:['/images/myproject/foundly/1.png']},
         {name:'TRAVEL CLUSTER',detail:'krungsri hackathon',img:['/images/myproject/travelcluster/4.png']},
         {name:'petfolio',detail:'data serialization project',img:['/images/myproject/petfolio/1.png']},
         {name:'vilapark',detail:'web app project',img:['/images/myproject/vilapark/1.png']},
-
-
     ]
+
     const contact:ContactItem[] = [
-      { name: 'phone', detail: ['0886707555'], img: '123' },
-      { name: 'email', detail: ['kaewpetcharat.sisan@gmail.com','kaewpetcharat.s@kkumail.com'], img: '123'},
-      { name: 'github', detail: ['https://github.com/JengCharat'], img: '123' },
+      { name: 'โทรศัพท์', detail: ['088-670-7555'], img: '123' },
+      { name: 'อีเมล', detail: ['kaewpetcharat.sisan@gmail.com','kaewpetcharat.s@kkumail.com'], img: '123'},
+      { name: 'github', detail: ['github.com/JengCharat'], img: '123' },
     ]
-    const technicalskill:TechnicalSkilItem[] = [
-        {skill:'html'},
-        {skill:'css'},
-        {skill:'javascript'},
-        {skill:'laravel'},
-        {skill:'next js'},
-        {skill:'express'},
-        {skill:'mysql'},
-        {skill:'kotlin'},
-        {skill:'c++'},
-        {skill:'java'},
-        {skill:'java springboot'},
 
+    const technicalskill:TechnicalSkillItem[] = [
+        {skill:'html'},{skill:'css'},{skill:'javascript'},{skill:'laravel'},
+        {skill:'next js'},{skill:'express'},{skill:'mysql'},{skill:'kotlin'},
+        {skill:'c++'},{skill:'java'},{skill:'java springboot'},
     ]
-    const toolandplatform:ToolAndPlatFormItem[] = [
-        {skill:"neovim"},
-        {skill:"git"},
-        {skill:"lazygit"},
-        {skill:"postman"},
+
+    const toolandplatform:ToolAndPlatformItem[] = [
+        {skill:"neovim"},{skill:"git"},{skill:"lazygit"},{skill:"postman"},
     ]
+
     const softskill:SoftSkillItem[] = [
-        {skill:"agile"}
+        {skill:"agile"},{skill:"teamwork"},{skill:"problem solving"},
     ]
     
     return (
         <>
             <Navbar/>
-             <GitHubCalendar
-                  username="jengcharat"
-                  blockSize={15}
-                  blockMargin={5}
-                  fontSize={14}
-                />
-            <div id="about" className="flex flex-col flex-1 md:flex-row md:items-start justify-center items-center m-5">
-                <div>
-                     <Image className="relative rounded-full md:w-100"
-                          src="/images/my-profile-img.jpg"
-                          alt="profile image"
-                          width={200}
-                          height={200}
-                    />  
-                </div> 
-                <div className="flex flex-col flex-1  items-center m-5 text-center md:items-start md:text-start">
-                    <h3 className="text-white text-xl">
-                      สวัสดีครับ{" "}
-                      <span className="text-red-500">
-                        ผมเจ๋ง
-                      </span>
-                    </h3>
-                  <h1 className="text-white text-3xl font-bold">
-                    แก้วเพ็ชรัตน์ สีสันต์
-                  </h1>
-                  <h1 className="text-white text-xl">
-                    นักศึกษาชั้นปีที่ 3 สาขาวิทยาลัยการคอมพิวเตอร์คอมพิวเตอร์ สามขาวิทยาการคอมพิวเตอร์ หลงใหลในการสร้างสรรค์เทคโนโลยี มีประสบการณ์แข่งขันหุ่นยนต์ตั้งแต่มัธยม และพัฒนาโปรเจคหลากหลาย
-                  </h1>
-                  <div className="m-5 grid gap-5 grid-cols-2">
-                    <a href="#myproject" className="text-xl text-white border border-blue-800 bg-blue-800 p-5 rounded-xl">
-                        ดูผลงาน
-                    </a>
-                    <a href="#contact" className="text-xl text-white border border-blue-800 p-5 rounded-xl">
-                      ติดต่อผม
-                    </a>
-                  </div>
-
-
-
-                  <div className="grid grid-cols-2 gap-5 md:flex ">
-                    <div className="items-center border border-white rounded-xl p-3">
-                        <h1 className="text-white text-xl">my certificate</h1>
-                        <h1 className="text-white text-xl p-3 md:ml-5">{mathayom_certification.length}</h1>
+            
+            {selectedItem && (
+                <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4" onClick={() => setSelectedItem(null)}>
+                    <div className="bg-gray-800 rounded-xl max-w-lg w-full p-6 border border-blue-500" onClick={e => e.stopPropagation()}>
+                        <div className="flex justify-between items-center mb-4">
+                            <h3 className="text-xl font-bold text-white">{selectedItem.name}</h3>
+                            <button onClick={() => setSelectedItem(null)}><FaTimes className="text-white" /></button>
+                        </div>
+                        <div className="relative h-48 mb-4 rounded overflow-hidden">
+                            {'img' in selectedItem && Array.isArray(selectedItem.img) ? (
+                                <Image src={selectedItem.img[0]} alt={selectedItem.name} fill className="object-cover" />
+                            ) : 'img' in selectedItem ? (
+                                <Image src={selectedItem.img as string} alt={selectedItem.name} fill className="object-cover" />
+                            ) : null}
+                        </div>
+                        <p className="text-gray-300">{selectedItem.detail}</p>
                     </div>
-                    <div className="items-center border border-white rounded-xl p-3">
-                        <h1 className="text-white text-xl">my project</h1>
-                        <h1 className="text-white text-xl p-3 md:ml-5">{myproject.length}</h1>
-                    </div>
-                    <div className="items-center border border-white rounded-xl p-3">
-                        <h1 className="text-white text-xl">my technical skill</h1>
-                        <h1 className="text-white text-xl p-3 md:ml-5">{technicalskill.length}</h1>
-                    </div>
-                  </div>
                 </div>
-            </div>
+            )}
+            
+            <div className="min-h-screen bg-gray-900 text-white p-4">
+                <div className="max-w-6xl mx-auto">
+                    <div className="mb-8 bg-gray-800 p-4 rounded-xl">
+                        <h2 className="text-white text-center mb-4">GitHub Activity</h2>
+                        <div className="flex justify-center">
+                            <GitHubCalendar
+                              username="jengcharat"
+                              blockSize={12}
+                              blockMargin={3}
+                              fontSize={12}
+                              colorScheme="dark"
+                            />
+                          </div>
+                    </div>
 
-            <div>
-            <h1 id="skill" className="text-xl text-white flex justify-center m-5">ทักษะและความสามารถ</h1>
-                        <div className="grid grid-cols-1 grid-rows-2 gap-5 md:grid-cols-2">
-                            <div className="row-span-2 border border-white">
-                                <h1 className="text-white text-xl">Technical Skills</h1>
-                                <div className="flex flex-wrap gap-5 p-5 text-white rounded-xl">
-                                        {technicalskill.map((item,index)=>(
-                                            <h1 key = {index} className="text-white text-xl">{item.skill}</h1>
-                                        ))}
-                                </div>
+                    <div id="about" className="flex flex-col md:flex-row items-center gap-8 mb-12">
+                        <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-blue-500">
+                            <Image src="/images/my-profile-img.jpg" alt="profile" fill className="object-cover" />
+                        </div>
+                        <div className="text-center md:text-left">
+                            <h3 className="text-xl mb-2">สวัสดีครับ <span className="text-blue-400">ผมเจ๋ง</span></h3>
+                            <h1 className="text-3xl font-bold mb-4">แก้วเพ็ชรัตน์ สีสันต์</h1>
+                            <p className="text-gray-300 mb-6">นักศึกษาปี 3 วิทยาการคอมพิวเตอร์ มหาวิทยาลัยขอนแก่น หลงใหลในการสร้างสรรค์เทคโนโลยี</p>
+                            <div className="flex flex-wrap gap-4 mb-6">
+                                <a href="#myproject" className="px-6 py-2 bg-blue-600 rounded-lg">ดูผลงาน</a>
+                                <a href="#contact" className="px-6 py-2 border border-blue-500 rounded-lg">ติดต่อ</a>
                             </div>
-                            <div className="border border-white">
-                                <h1 className="text-white text-xl">Tools & Platforms</h1>
-                                <div className="flex flex-wrap gap-5 p-5 text-white rounded-xl">
-                                        {toolandplatform.map((item,index)=>(
-                                            <h1 key = {index} className="text-white text-xl">{item.skill}</h1>
-                                        ))}
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                <div className="bg-gray-800 p-3 rounded-lg" onClick={() => setSelectedItem(mathayom_certification[0])}>
+                                    <div className="text-sm">เกียรติบัตร</div>
+                                    <div className="text-2xl font-bold text-blue-400">{mathayom_certification.length}</div>
                                 </div>
-                            </div>
-                            <div className="border border-white">
-                                <h1 className="text-white text-xl">Soft Skills</h1>
-                                <div className="flex flex-wrap gap-5 p-5 text-white rounded-xl">
-                                    {softskill.map((item,index)=>(
-                                        <h1 key={index} className="text-white text-xl">{item.skill}</h1>
-                                    ))}
+                                <div className="bg-gray-800 p-3 rounded-lg" onClick={() => setSelectedItem(myproject[0])}>
+                                    <div className="text-sm">โปรเจค</div>
+                                    <div className="text-2xl font-bold text-green-400">{myproject.length}</div>
+                                </div>
+                                <div className="bg-gray-800 p-3 rounded-lg">
+                                    <div className="text-sm">ทักษะ</div>
+                                    <div className="text-2xl font-bold text-purple-400">{technicalskill.length}</div>
+                                </div>
+                                <div className="bg-gray-800 p-3 rounded-lg">
+                                    <div className="text-sm">รางวัล</div>
+                                    <div className="text-2xl font-bold text-yellow-400">{mathayom_certification.length}</div>
                                 </div>
                             </div>
                         </div>
-            </div>
-            <div id="certificate" className="m-5">
-                <div className="flex flex-col flex-2 items-center">
-                    <h1 className="text-2xl text-white">เกียรติบัตร & รางวัล</h1>
-                    <h1 className="text-xl text-white">ผลงานตั้งแต่มัธยมศึกษาจนถึงระดับมหาวิทยาลัย</h1>
-                </div>
-                <div>
-                    <h1 className="text-white text-xl">มัธยมศึกษา - การแข่งขันหุ่นยนต์ & โครงงาน</h1>
-                    <div className="flex gap-4 overflow-x-auto whitespace-nowrap">
-                            {mathayom_certification.map((item,index)=>(
-                               <div key={index} className="min-w-[200px] bg-blue-500 text-white p-4">
-                                    <h1 className="text-2xl text-white">{item.name}</h1>
-                                    <div>
-                                         <Image className="relative md:w-100"
-                                              src={item.img}
-                                              alt={item.name}
-                                              width={200}
-                                              height={200}
-                                        />  
-                                    </div> 
-                                    <div>
-                                        <h1 className="text-xl text-white">{item.detail}</h1>
-                                    </div>
-
-                               </div> 
-                            ))}
                     </div>
-                </div>
-                <div>
-                    <h1 className="text-white text-xl">ภาพกิจกรรม</h1>
-                    <div className="flex gap-4 overflow-x-auto whitespace-nowrap">
-                            {activity_image.map((item,index)=>(
-                               <div key={index} className="min-w-[200px] bg-blue-500 text-white p-4 rounded">
-                                    <div>
-                                         <Image className="relative md:w-100"
-                                              src={item.img}
-                                              alt={item.name}
-                                              width={200}
-                                              height={200}
-                                        />  
-                                    </div> 
-                               </div> 
-                            ))}
-                    </div>
-                </div>
-            </div>
-            <div id = "myproject" className="m-5">
-                <div className="flex flex-col flex-1 items-center">
-                    <h1 className="text-3xl text-white">โปรเจค ที่น่าสนใจ</h1>
-                    <h1 className="text-xl text-white">ผลงานที่คัดสรรมาแสดง</h1>
-                </div>
-                <div className="grid gap-4 grid-cols-[repeat(auto-fit,minmax(250px,1fr))]">
-                            {myproject.map((item,index)=>(
-                               <div key={index} className="min-w-[200px] bg-blue-500 text-white p-4">
-                                    <h1 className="text-2xl text-white">{item.name}</h1>
-                                    <div>
-                                         <Image className="relative md:w-100"
-                                              src={item.img[0]}
-                                              alt={item.name}
-                                              width={200}
-                                              height={200}
-                                        />  
-                                    </div> 
-                                    <div>
-                                        <h1 className="text-xl text-white">{item.detail}</h1>
-                                    </div>
 
-                               </div> 
-                            ))}
-                </div>
-            </div>
-            <div id="contact">
-                <div className="flex flex-col flex-1 items-center">
-                    <h1 className="text-2xl text-white">ติดต่อ ผม</h1>
-                    <h1 className="text-2xl text-white">สนใจร่วมงาน หรือมีคำถาม สามารถติดต่อได้เลยครับ!</h1>
-                </div>
-                <div className="grid grid-cols-1  md:grid-cols-3 border border-white text-center">
-                    {contact.map((item,index)=>(
-                            <div key={index}>
-                                ้ <h1 className="text-2xl text-white">{item.name}</h1>
-                                ้ {item.detail && <h1 className="text-2xl text-white">{item.detail}</h1>}
+                    <div id="skill" className="mb-12">
+                        <h2 className="text-2xl font-bold text-center mb-6">ทักษะและความสามารถ</h2>
+                        <div className="grid gap-6">
+                            <div className="bg-gray-800 p-6 rounded-xl">
+                                <h3 className="text-xl font-bold mb-4">Technical Skills</h3>
+                                <div className="flex flex-wrap gap-2">
+                                    {technicalskill.map((item,i) => <span key={i} className="px-3 py-1 bg-blue-900/50 rounded-full">{item.skill}</span>)}
+                                </div>
                             </div>
-                    ))}
+                            <div className="grid md:grid-cols-2 gap-6">
+                                <div className="bg-gray-800 p-6 rounded-xl">
+                                    <h3 className="text-xl font-bold mb-4">Tools & Platforms</h3>
+                                    <div className="flex flex-wrap gap-2">
+                                        {toolandplatform.map((item,i) => <span key={i} className="px-3 py-1 bg-green-900/50 rounded-full">{item.skill}</span>)}
+                                    </div>
+                                </div>
+                                <div className="bg-gray-800 p-6 rounded-xl">
+                                    <h3 className="text-xl font-bold mb-4">Soft Skills</h3>
+                                    <div className="flex flex-wrap gap-2">
+                                        {softskill.map((item,i) => <span key={i} className="px-3 py-1 bg-purple-900/50 rounded-full">{item.skill}</span>)}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="certificate" className="mb-12">
+                        <h2 className="text-2xl font-bold text-center mb-6">เกียรติบัตร & รางวัล</h2>
+                        <div className="flex overflow-x-auto gap-4 pb-4">
+                            {mathayom_certification.map((item,i) => (
+                                <div key={i} className="min-w-64 bg-gray-800 rounded-xl overflow-hidden cursor-pointer" onClick={() => setSelectedItem(item)}>
+                                    <div className="relative h-40">
+                                        <Image src={item.img} alt={item.name} fill className="object-cover" />
+                                    </div>
+                                    <div className="p-4">
+                                        <h3 className="font-bold mb-2">{item.name}</h3>
+                                        <p className="text-gray-400 text-sm line-clamp-2">{item.detail}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        <h3 className="text-xl font-bold mt-8 mb-4">ภาพกิจกรรม</h3>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            {activity_image.map((item,i) => (
+                                <div key={i} className="relative h-40 rounded-xl overflow-hidden cursor-pointer" onClick={() => setSelectedItem(item)}>
+                                    <Image src={item.img} alt={item.name} fill className="object-cover" />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div id="myproject" className="mb-12">
+                        <h2 className="text-2xl font-bold text-center mb-6">โปรเจคที่น่าสนใจ</h2>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {myproject.map((item,i) => (
+                                <div key={i} className="bg-gray-800 rounded-xl overflow-hidden cursor-pointer" onClick={() => setSelectedItem(item)}>
+                                    <div className="relative h-40">
+                                        <Image src={item.img[0]} alt={item.name} fill className="object-cover" />
+                                    </div>
+                                    <div className="p-4">
+                                        <h3 className="font-bold mb-2">{item.name}</h3>
+                                        <p className="text-gray-400">{item.detail}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div id="contact" className="mb-12">
+                        <h2 className="text-2xl font-bold text-center mb-6">ติดต่อ</h2>
+                        <div className="grid md:grid-cols-3 gap-6">
+                            {contact.map((item,i) => (
+                                <div key={i} className="bg-gray-800 p-6 rounded-xl text-center">
+                                    <h3 className="font-bold mb-2">{item.name}</h3>
+                                    <div>
+                                        {item.detail?.map((d,idx) => (
+                                            <p key={idx} className="text-gray-300 cursor-pointer" onClick={() => {
+                                                if(item.name === 'github') window.open('https://github.com/JengCharat', '_blank')
+                                                if(item.name === 'โทรศัพท์') window.location.href = `tel:${d}`
+                                                if(item.name === 'อีเมล') window.location.href = `mailto:${d}`
+                                            }}>
+                                                {d}
+                                            </p>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
