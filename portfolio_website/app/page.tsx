@@ -18,6 +18,11 @@ type CollegeActivityItem = {
     detail:string,
     img:string
 }
+type ActivityImageItem = {
+    name:string,
+    detail:string,
+    img:string
+}
 type MyProjectItem = {
     name:string,
     detail:string,
@@ -54,6 +59,12 @@ export default function Home(){
           งานศิลปหัตถกรรมนักเรียนระดับชาติ ครั้งที่ 69
           ปีการศึกษา 2562`
           ,img:'/images/certification/silapa69-mix.png'},
+
+      { name: 'การประกวดโครงงานระดับนานาชาติ ในงาน Indonesia Inventors Day 2022 (9th IYIA)', detail:`
+           การประกวดโครงงานระดับนานาชาติ ในงาน Indonesia Inventors Day 2022 (9th IYIA) จากโครงงานเรื่อง The Applicaation of Artificial Intelogence for Analysis of Chillies Diseaes, Nutrient Deficiencies, Pets Detection and Elimination with CIRA CORE Platform
+              หน่วยงานที่จัด : INDONESIAN INVENTION AND INNOVATION PROMOTION ASSOCIATION (INNOPA)
+          วันเวลา สถานที่ 29-31 October 2022 Udayana University Bali,Indonesia
+          `,img:'/images/certification/farm_microcontroller.png'},
       { name: 'แข่งขันหุ่นยนต์ระดับสูง', detail:`
           แข่งขันหุ่นยนต์ระดับสูงระดับชั้น ม.1 - ม.3
           (รางวัลเหรียญเงิน)
@@ -89,12 +100,9 @@ export default function Home(){
           ผ่านการอบรมเชิงปฎิบัติการประยุกต์ใช้ไมโครคอลโทรเลอร์สร้างนวัตกรรมกับระบบฟาร์มอัจฉริยะ
           `,img:'/images/certification/farm_microcontroller.png'},
     ]
-    const college_activity:CollegeActivityItem[] = [
-        {name:'TA',detail:'teacher assistant',img:'123'},
-        {name:'เข้าร่วมคัดตัวicpcของคณะ',detail:'icpc',img:'123'},
-        {name:'เข้าร่วมkrungsri hackathon',detail:'travel cluster',img:'123'},
-        {name:'tbl hackathon',detail:'รางวัลที่ 3',img:'123'},
-
+    const activity_image:ActivityImageItem[] = [
+        {name:'image1',detail:'image1',img:'/images/activity_image/1.png'},
+        {name:'image2',detail:'image3',img:'/images/activity_image/2.png'},
     ]
 
     const myproject:MyProjectItem[] = [
@@ -182,10 +190,6 @@ export default function Home(){
                         <h1 className="text-white text-xl p-3 md:ml-5">{myproject.length}</h1>
                     </div>
                     <div className="items-center border border-white rounded-xl p-3">
-                        <h1 className="text-white text-xl">my hackathon</h1>
-                        <h1 className="text-white text-xl p-3 md:ml-5">{college_activity.length}</h1>
-                    </div>
-                    <div className="items-center border border-white rounded-xl p-3">
                         <h1 className="text-white text-xl">my technical skill</h1>
                         <h1 className="text-white text-xl p-3 md:ml-5">{technicalskill.length}</h1>
                     </div>
@@ -250,11 +254,18 @@ export default function Home(){
                     </div>
                 </div>
                 <div>
-                    <h1 className="text-white text-xl">มหาวิทยาลัย - Hackathon & Competition</h1>
+                    <h1 className="text-white text-xl">ภาพกิจกรรม</h1>
                     <div className="flex gap-4 overflow-x-auto whitespace-nowrap">
-                            {college_activity.map((item,index)=>(
+                            {activity_image.map((item,index)=>(
                                <div key={index} className="min-w-[200px] bg-blue-500 text-white p-4 rounded">
-                                    <h1 className="text-2xl text-white">{item.name}</h1>
+                                    <div>
+                                         <Image className="relative md:w-100"
+                                              src={item.img}
+                                              alt={item.name}
+                                              width={200}
+                                              height={200}
+                                        />  
+                                    </div> 
                                </div> 
                             ))}
                     </div>
