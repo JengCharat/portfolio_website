@@ -3,7 +3,7 @@ import { GitHubCalendar } from 'react-github-calendar'
 import Navbar from "./components/Navbar"
 import Image from "next/image"
 import { useState } from "react"
-import { FaPhone, FaEnvelope, FaGithub, FaTimes } from "react-icons/fa"
+import { FaPhone, FaEnvelope, FaGithub, FaTimes, FaArrowLeft, FaArrowRight } from "react-icons/fa"
 
 type ContactItem = {
     name:string,
@@ -37,6 +37,7 @@ type SoftSkillItem = {
 
 export default function Home(){
     const [selectedItem, setSelectedItem] = useState<CertificateItem | MyProjectItem | ActivityImageItem | null>(null)
+    const [currentImageIndex, setCurrentImageIndex] = useState(0)
     
     const mathayom_certification:CertificateItem[] = [
       { name: 'แข่งขันหุ่นยนต์ระดับสูง', detail:'แข่งขันหุ่นยนต์ระดับสูง ม.1-ม.3 (เหรียญเงิน) งานศิลปหัตถกรรมนักเรียนระดับชาติ ครั้งที่ 69 ปี 2562', img:'/images/certification/silapa69-high.png'},
@@ -54,18 +55,173 @@ export default function Home(){
       { name: 'microcontroller for farm', detail:'อบรมเชิงปฎิบัติการใช้ไมโครคอนโทรลเลอร์สร้างนวัตกรรมฟาร์มอัจฉริยะ', img:'/images/certification/farm_microcontroller.png'},
     ]
 
-    const activity_image:ActivityImageItem[] = [
-        {name:'กิจกรรมแข่งขันหุ่นยนต์',detail:'ภาพกิจกรรมการแข่งขันหุ่นยนต์',img:'/images/activity_image/1.png'},
-        {name:'กิจกรรมอบรม',detail:'ภาพกิจกรรมการอบรมเชิงปฏิบัติการ',img:'/images/activity_image/2.png'},
-    ]
+        const activity_image: ActivityImageItem[] = [
+            {
+                name: 'กิจกรรมแข่งขันหุ่นยนต์',
+                detail: 'ภาพกิจกรรมการแข่งขันหุ่นยนต์',
+                img: '/images/activity_image/1.png'
+            },
+            {
+                name: 'กิจกรรมอบรม',
+                detail: 'ภาพกิจกรรมการอบรมเชิงปฏิบัติการ',
+                img: '/images/activity_image/2.png'
+            },
+            {
+                name: 'กิจกรรมอบรม',
+                detail: 'ภาพกิจกรรมการอบรมเชิงปฏิบัติการ',
+                img: '/images/activity_image/3.png'
+            },
+            {
+                name: 'กิจกรรมอบรม',
+                detail: 'ภาพกิจกรรมการอบรมเชิงปฏิบัติการ',
+                img: '/images/activity_image/4.png'
+            },
+            {
+                name: 'กิจกรรมอบรม',
+                detail: 'ภาพกิจกรรมการอบรมเชิงปฏิบัติการ',
+                img: '/images/activity_image/5.png'
+            },
+            {
+                name: 'กิจกรรมอบรม',
+                detail: 'ภาพกิจกรรมการอบรมเชิงปฏิบัติการ',
+                img: '/images/activity_image/6.jpg'
+            },
+            {
+                name: 'กิจกรรมอบรม',
+                detail: 'ภาพกิจกรรมการอบรมเชิงปฏิบัติการ',
+                img: '/images/activity_image/7.JPG'
+            },
+            {
+                name: 'กิจกรรมอบรม',
+                detail: 'ภาพกิจกรรมการอบรมเชิงปฏิบัติการ',
+                img: '/images/activity_image/8.JPG'
+            },
+            {
+                name: 'กิจกรรมอบรม',
+                detail: 'ภาพกิจกรรมการอบรมเชิงปฏิบัติการ',
+                img: '/images/activity_image/9.jpg'
+            },
+            {
+                name: 'กิจกรรมอบรม',
+                detail: 'ภาพกิจกรรมการอบรมเชิงปฏิบัติการ',
+                img: '/images/activity_image/10.jpg'
+            },
 
+            {
+                name: 'กิจกรรมอบรม',
+                detail: 'ภาพกิจกรรมการอบรมเชิงปฏิบัติการ',
+                img: '/images/activity_image/11.JPG'
+            },
+            {
+                name: 'กิจกรรมอบรม',
+                detail: 'ภาพกิจกรรมการอบรมเชิงปฏิบัติการ',
+                img: '/images/activity_image/12.JPG'
+            }
+        ]
+
+    // กำหนดรูปภาพรายละเอียดสำหรับแต่ละโปรเจค
     const myproject:MyProjectItem[] = [
-        {name:'TBL HACKATHON',detail:'hackathon project',img:['/images/myproject/tbl_hackathon/4.png']},
-        {name:'kku ของหาย',detail:'web app project',img:['/images/myproject/kku_missing/1.png']},
-        {name:'foundly',detail:'web app project',img:['/images/myproject/foundly/1.png']},
-        {name:'TRAVEL CLUSTER',detail:'krungsri hackathon',img:['/images/myproject/travelcluster/4.png']},
-        {name:'petfolio',detail:'data serialization project',img:['/images/myproject/petfolio/1.png']},
-        {name:'vilapark',detail:'web app project',img:['/images/myproject/vilapark/1.png']},
+        {
+            name:'TBL HACKATHON',
+            detail:'hackathon project',
+            img:[
+                '/images/myproject/tbl_hackathon/4.png',
+                '/images/myproject/tbl_hackathon/2.png',
+                '/images/myproject/tbl_hackathon/3.png',
+                '/images/myproject/tbl_hackathon/1.png'
+            ]
+        },
+        {
+            name:'kku ของหาย',
+            detail:'web app project',
+            img:[
+                '/images/myproject/kku_missing/1.png',
+                '/images/myproject/kku_missing/2.png',
+                '/images/myproject/kku_missing/3.png',
+                '/images/myproject/kku_missing/4.png',
+                '/images/myproject/kku_missing/5.png',
+                '/images/myproject/kku_missing/6.png',
+                '/images/myproject/kku_missing/7.png',
+            ]
+        },
+        {
+            name:'foundly',
+            detail:'web app project',
+            img:[
+                '/images/myproject/foundly/1.png',
+                '/images/myproject/foundly/2.png',
+                '/images/myproject/foundly/3.png',
+                '/images/myproject/foundly/4.png',
+                '/images/myproject/foundly/5.png',
+                '/images/myproject/foundly/6.png',
+                '/images/myproject/foundly/7.png',
+                '/images/myproject/foundly/8.png',
+                '/images/myproject/foundly/9.png',
+                '/images/myproject/foundly/10.png',
+            ]
+        },
+        {
+            name:'TRAVEL CLUSTER',
+            detail:'krungsri hackathon',
+            img:[
+                '/images/myproject/travelcluster/4.png',
+                '/images/myproject/travelcluster/1.jpeg',
+                '/images/myproject/travelcluster/2.png',
+                '/images/myproject/travelcluster/3.png',
+                '/images/myproject/travelcluster/5.png'
+            ]
+        },
+        {
+            name: 'petfolio',
+            detail: 'data serialization project',
+            img: [
+                '/images/myproject/petfolio/1.png',
+                '/images/myproject/petfolio/2.png',
+                '/images/myproject/petfolio/3.png',
+                '/images/myproject/petfolio/4.png',
+                '/images/myproject/petfolio/5.png',
+                '/images/myproject/petfolio/6.png',
+                '/images/myproject/petfolio/7.png',
+                '/images/myproject/petfolio/8.png',
+                '/images/myproject/petfolio/9.png',
+                '/images/myproject/petfolio/10.png',
+                '/images/myproject/petfolio/11.png',
+                '/images/myproject/petfolio/12.png',
+                '/images/myproject/petfolio/13.png',
+                '/images/myproject/petfolio/14.png',
+                '/images/myproject/petfolio/15.png',
+                '/images/myproject/petfolio/16.png',
+                '/images/myproject/petfolio/17.png',
+                '/images/myproject/petfolio/18.png',
+                '/images/myproject/petfolio/19.png',
+                '/images/myproject/petfolio/20.png',
+                '/images/myproject/petfolio/21.png',
+                '/images/myproject/petfolio/22.png',
+                '/images/myproject/petfolio/23.png',
+                '/images/myproject/petfolio/24.png',
+                '/images/myproject/petfolio/25.png',
+                '/images/myproject/petfolio/26.png',
+                '/images/myproject/petfolio/27.png',
+            ]
+        },
+        {
+            name: 'vilapark',
+            detail: 'web app project',
+            img: [
+                '/images/myproject/vilapark/1.png',
+                '/images/myproject/vilapark/2.png',
+                '/images/myproject/vilapark/3.png',
+                '/images/myproject/vilapark/4.png',
+                '/images/myproject/vilapark/5.png',
+                '/images/myproject/vilapark/6.png',
+                '/images/myproject/vilapark/7.png',
+                '/images/myproject/vilapark/8.png',
+                '/images/myproject/vilapark/9.png',
+                '/images/myproject/vilapark/10.png',
+                '/images/myproject/vilapark/11.png',
+                '/images/myproject/vilapark/12.png',
+            ]
+        }
     ]
 
     const contact:ContactItem[] = [
@@ -87,26 +243,155 @@ export default function Home(){
     const softskill:SoftSkillItem[] = [
         {skill:"agile"},{skill:"teamwork"},{skill:"problem solving"},
     ]
+
+    const handlePrevImage = () => {
+        if (selectedItem && 'img' in selectedItem && Array.isArray(selectedItem.img)) {
+            setCurrentImageIndex(prev => 
+                prev === 0 ? selectedItem.img.length - 1 : prev - 1
+            )
+        }
+    }
+
+    const handleNextImage = () => {
+        if (selectedItem && 'img' in selectedItem && Array.isArray(selectedItem.img)) {
+            setCurrentImageIndex(prev => 
+                prev === selectedItem.img.length - 1 ? 0 : prev + 1
+            )
+        }
+    }
     
     return (
         <>
             <Navbar/>
             
             {selectedItem && (
-                <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4" onClick={() => setSelectedItem(null)}>
-                    <div className="bg-gray-800 rounded-xl max-w-lg w-full p-6 border border-blue-500" onClick={e => e.stopPropagation()}>
-                        <div className="flex justify-between items-center mb-4">
-                            <h3 className="text-xl font-bold text-white">{selectedItem.name}</h3>
-                            <button onClick={() => setSelectedItem(null)}><FaTimes className="text-white" /></button>
+                <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4" onClick={() => {
+                    setSelectedItem(null)
+                    setCurrentImageIndex(0)
+                }}>
+                    <div className="bg-gray-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-blue-500" onClick={e => e.stopPropagation()}>
+                        <div className="flex justify-between items-center mb-4 p-6">
+                            <h3 className="text-2xl font-bold text-white">{selectedItem.name}</h3>
+                            <button onClick={() => {
+                                setSelectedItem(null)
+                                setCurrentImageIndex(0)
+                            }}><FaTimes className="text-white text-2xl" /></button>
                         </div>
-                        <div className="relative h-48 mb-4 rounded overflow-hidden">
+                        
+                        {/* รูปภาพหลัก */}
+                        <div className="relative h-64 md:h-96 mb-4 rounded-lg overflow-hidden mx-6">
                             {'img' in selectedItem && Array.isArray(selectedItem.img) ? (
-                                <Image src={selectedItem.img[0]} alt={selectedItem.name} fill className="object-cover" />
+                                <Image 
+                                    src={selectedItem.img[currentImageIndex]} 
+                                    alt={`${selectedItem.name} - รูปที่ ${currentImageIndex + 1}`} 
+                                    fill 
+                                    className="object-contain bg-gray-900" 
+                                />
                             ) : 'img' in selectedItem ? (
-                                <Image src={selectedItem.img as string} alt={selectedItem.name} fill className="object-cover" />
+                                <Image 
+                                    src={selectedItem.img as string} 
+                                    alt={selectedItem.name} 
+                                    fill 
+                                    className="object-contain bg-gray-900" 
+                                />
                             ) : null}
+                            
+                            {/* ปุ่มเลื่อนรูปถ้ามีหลายรูป */}
+                            {'img' in selectedItem && Array.isArray(selectedItem.img) && selectedItem.img.length > 1 && (
+                                <>
+                                    <button 
+                                        onClick={handlePrevImage}
+                                        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70"
+                                    >
+                                        <FaArrowLeft />
+                                    </button>
+                                    <button 
+                                        onClick={handleNextImage}
+                                        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70"
+                                    >
+                                        <FaArrowRight />
+                                    </button>
+                                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+                                        {currentImageIndex + 1} / {selectedItem.img.length}
+                                    </div>
+                                </>
+                            )}
                         </div>
-                        <p className="text-gray-300">{selectedItem.detail}</p>
+
+                        {/* รูปภาพย่อย (ถ้ามี) */}
+                        {'img' in selectedItem && Array.isArray(selectedItem.img) && selectedItem.img.length > 1 && (
+                            <div className="flex gap-2 overflow-x-auto pb-4 px-6">
+                                {selectedItem.img.map((img, index) => (
+                                    <div 
+                                        key={index} 
+                                        className={`relative h-20 w-32 flex-shrink-0 rounded-lg overflow-hidden cursor-pointer ${index === currentImageIndex ? 'ring-2 ring-blue-500' : 'opacity-60 hover:opacity-80'}`}
+                                        onClick={() => setCurrentImageIndex(index)}
+                                    >
+                                        <Image 
+                                            src={img} 
+                                            alt={`${selectedItem?.name} - รูปที่ ${index + 1}`} 
+                                            fill 
+                                            className="object-cover" 
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
+                        <div className="p-6">
+                            <p className="text-gray-300 whitespace-pre-line">{selectedItem.detail}</p>
+                            
+                            {/* สำหรับโปรเจค แสดงเทคโนโลยีที่ใช้ */}
+                            {'img' in selectedItem && Array.isArray(selectedItem.img) && (
+                                <div className="mt-6">
+                                    <h4 className="text-xl font-bold text-white mb-3">รายละเอียดเพิ่มเติม</h4>
+                                    <div className="flex flex-wrap gap-2">
+                                        {selectedItem.name === 'TBL HACKATHON' && (
+                                            <>
+                                                <span className="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full">Next.js</span>
+                                                <span className="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full">Node.js</span>
+                                                <span className="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full">MongoDB</span>
+                                            </>
+                                        )}
+                                        {selectedItem.name === 'kku ของหาย' && (
+                                            <>
+                                                <span className="px-3 py-1 bg-green-900/50 text-green-300 rounded-full">Laravel</span>
+                                                <span className="px-3 py-1 bg-green-900/50 text-green-300 rounded-full">MySQL</span>
+                                                <span className="px-3 py-1 bg-green-900/50 text-green-300 rounded-full">Bootstrap</span>
+                                            </>
+                                        )}
+                                        {selectedItem.name === 'foundly' && (
+                                            <>
+                                                <span className="px-3 py-1 bg-purple-900/50 text-purple-300 rounded-full">React</span>
+                                                <span className="px-3 py-1 bg-purple-900/50 text-purple-300 rounded-full">Express.js</span>
+                                                <span className="px-3 py-1 bg-purple-900/50 text-purple-300 rounded-full">PostgreSQL</span>
+                                            </>
+                                        )}
+                                        {selectedItem.name === 'TRAVEL CLUSTER' && (
+                                            <>
+                                                <span className="px-3 py-1 bg-yellow-900/50 text-yellow-300 rounded-full">Python</span>
+                                                <span className="px-3 py-1 bg-yellow-900/50 text-yellow-300 rounded-full">Flask</span>
+                                                <span className="px-3 py-1 bg-yellow-900/50 text-yellow-300 rounded-full">React Native</span>
+                                            </>
+                                        )}
+                                        {selectedItem.name === 'petfolio' && (
+                                            <>
+                                                <span className="px-3 py-1 bg-red-900/50 text-red-300 rounded-full">Kotlin</span>
+                                                <span className="px-3 py-1 bg-red-900/50 text-red-300 rounded-full">Spring Boot</span>
+                                                <span className="px-3 py-1 bg-red-900/50 text-red-300 rounded-full">Blockchain</span>
+                                            </>
+                                        )}
+                                        {selectedItem.name === 'vilapark' && (
+                                            <>
+                                                <span className="px-3 py-1 bg-indigo-900/50 text-indigo-300 rounded-full">Next.js</span>
+                                                <span className="px-3 py-1 bg-indigo-900/50 text-indigo-300 rounded-full">TypeScript</span>
+                                                <span className="px-3 py-1 bg-indigo-900/50 text-indigo-300 rounded-full">Prisma</span>
+                                            </>
+                                        )}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
             )}
@@ -115,15 +400,9 @@ export default function Home(){
                 <div className="max-w-6xl mx-auto">
                     <div className="mb-8 bg-gray-800 p-4 rounded-xl">
                         <h2 className="text-white text-center mb-4">GitHub Activity</h2>
-                        <div className="flex justify-center">
-                            <GitHubCalendar
-                              username="jengcharat"
-                              blockSize={12}
-                              blockMargin={3}
-                              fontSize={12}
-                              colorScheme="dark"
-                            />
-                          </div>
+                        <div className='flex justify-center'>
+                            <GitHubCalendar username="jengcharat" blockSize={12} blockMargin={3} fontSize={12} colorScheme="dark" />
+                        </div>
                     </div>
 
                     <div id="about" className="flex flex-col md:flex-row items-center gap-8 mb-12">
@@ -214,9 +493,17 @@ export default function Home(){
                         <h2 className="text-2xl font-bold text-center mb-6">โปรเจคที่น่าสนใจ</h2>
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {myproject.map((item,i) => (
-                                <div key={i} className="bg-gray-800 rounded-xl overflow-hidden cursor-pointer" onClick={() => setSelectedItem(item)}>
+                                <div key={i} className="bg-gray-800 rounded-xl overflow-hidden cursor-pointer" onClick={() => {
+                                    setSelectedItem(item)
+                                    setCurrentImageIndex(0)
+                                }}>
                                     <div className="relative h-40">
                                         <Image src={item.img[0]} alt={item.name} fill className="object-cover" />
+                                        {item.img.length > 1 && (
+                                            <div className="absolute top-2 right-2 bg-black/50 text-white px-2 py-1 rounded-full text-xs">
+                                                +{item.img.length - 1} รูป
+                                            </div>
+                                        )}
                                     </div>
                                     <div className="p-4">
                                         <h3 className="font-bold mb-2">{item.name}</h3>
