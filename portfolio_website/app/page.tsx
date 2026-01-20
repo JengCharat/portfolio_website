@@ -246,7 +246,7 @@ export default function Home(){
     const toolandplatform:ToolAndPlatformItem[] = [
         {skill:"Neovim"},{skill:"Git"},{skill:"GitHub"},{skill:"Postman"},
         {skill:"Burp Suite"},{skill:"Android Studio"},{skill:"Google Colab"},
-        {skill:"Linux"},{skill:"Docker"},{skill:"VS Code"}
+        {skill:"Linux"}
     ]
 
     const softskill:SoftSkillItem[] = [
