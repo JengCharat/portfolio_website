@@ -25,7 +25,9 @@ type MyProjectItem = {
     detail:string,
     img:string[],
     tech:string[],
-    challenges:string
+    challenges:string,
+    githubrepo?:string,
+    websitelink?:string
 }
 type TechnicalSkillItem = {
     skill:string
@@ -81,42 +83,51 @@ export default function Home(){
             detail:'ระบบติดตามสถานะและจัดการรถขนส่งสำหรับคลังสินค้า โดยพัฒนาระบบ Real-time Tracking เพื่อแก้ไขปัญหาการสื่อสารข้อมูลที่กระจัดกระจายและลดความไม่แน่นอนในการวางแผนเวลา',
             img:['/images/myproject/tbl_hackathon/4.png','/images/myproject/tbl_hackathon/2.png','/images/myproject/tbl_hackathon/3.png','/images/myproject/tbl_hackathon/1.png'],
             tech:["Laravel", "Tailwind CSS", "MySQL"],
-            challenges:"การทำงานภายใต้ความกดดันสูงกับผู้บริหารระดับองค์กร การประชุมรายวันเพื่ออัพเดตความคืบหน้า และการพัฒนาโซลูชันที่มีประสิทธิภาพภายในกรอบเวลาที่จำกัด"
+            challenges:"การทำงานภายใต้ความกดดันสูงกับผู้บริหารระดับองค์กร การประชุมรายวันเพื่ออัพเดตความคืบหน้า และการพัฒนาโซลูชันที่มีประสิทธิภาพภายในกรอบเวลาที่จำกัด",
+            websitelink:"https://jengcharat.com/tbl_hackathon/public/map"
         },
         {
             name:'KKU Lost & Found System',
             detail:'แพลตฟอร์มจัดการของหายภายในมหาวิทยาลัยขอนแก่น เพื่อแก้ไขปัญหาการประกาศหาของหายผ่านช่องทางโซเชียลมีเดียที่ไม่เป็นระบบ โดยจัดระเบียบข้อมูลและเพิ่มประสิทธิภาพในการค้นหา',
             img:['/images/myproject/kku_missing/1.png','/images/myproject/kku_missing/2.png','/images/myproject/kku_missing/3.png','/images/myproject/kku_missing/4.png','/images/myproject/kku_missing/5.png','/images/myproject/kku_missing/6.png','/images/myproject/kku_missing/7.png'],
             tech:["Laravel", "Tailwind CSS", "MySQL"],
-            challenges:"การปรับตัวกับสภาพแวดล้อมการพัฒนาใหม่ การแก้ไขปัญหา Configuration ระหว่างการย้ายระบบจาก Local Network ไปยัง Production Server และการเรียนรู้ Framework ใหม่ในเวลาจำกัด"
+            challenges:"การปรับตัวกับสภาพแวดล้อมการพัฒนาใหม่ การแก้ไขปัญหา Configuration ระหว่างการย้ายระบบจาก Local Network ไปยัง Production Server และการเรียนรู้ Framework ใหม่ในเวลาจำกัด",
+            websitelink:"https://webcs0567.cpkkuhost.com"
         },
         {
             name:'Foundly - Lost & Found Platform',
             detail:'ระบบจัดการของหายแบบครบวงจร พัฒนาจากประสบการณ์ในโครงการ KKU Lost & Found โดยเพิ่มฟังก์ชันการทำงานที่สมบูรณ์และเตรียมความพร้อมสำหรับการใช้งานจริงในวงกว้าง',
             img:['/images/myproject/foundly/1.png','/images/myproject/foundly/2.png','/images/myproject/foundly/3.png','/images/myproject/foundly/4.png','/images/myproject/foundly/5.png','/images/myproject/foundly/6.png','/images/myproject/foundly/7.png','/images/myproject/foundly/8.png','/images/myproject/foundly/9.png','/images/myproject/foundly/10.png'],
             tech:["Laravel", "React", "MySQL", "Tailwind CSS"],
-            challenges:"การบริหารจัดการทีมการประสานงานระหว่างสมาชิกทีมที่มีความเร็วในการทำงานแตกต่างกัน และการออกแบบสถาปัตยกรรมระบบที่รองรับการขยายตัวในอนาคต"
+            challenges:"การบริหารจัดการทีมการประสานงานระหว่างสมาชิกทีมที่มีความเร็วในการทำงานแตกต่างกัน และการออกแบบสถาปัตยกรรมระบบที่รองรับการขยายตัวในอนาคต",
+            websitelink:"https://findlytest.xyz"
         },
         {
             name:'Travel Cluster - Tourism Assistant',
             detail:'แพลตฟอร์มแนะนำการท่องเที่ยวแบบกลุ่มคลัสเตอร์ สำหรับนักท่องเที่ยวชาวไทยและต่างชาติ โดยเพิ่มความปลอดภัยและประหยัดเวลาในการวางแผนการเดินทาง',
             img:['/images/myproject/travelcluster/4.png','/images/myproject/travelcluster/1.jpeg','/images/myproject/travelcluster/2.png','/images/myproject/travelcluster/3.png','/images/myproject/travelcluster/5.png'],
             tech:["Laravel", "React", "MySQL"],
-            challenges:"การแข่งขันภายใต้ข้อจำกัดของเวลา การเก็บ Requirement ที่ไม่สมบูรณ์จากผู้ใช้งาน และการพัฒนาอัลกอริทึมที่ตอบโจทย์ความต้องการของผู้ใช้งานได้อย่างมีประสิทธิภาพ"
+            challenges:"การแข่งขันภายใต้ข้อจำกัดของเวลา การเก็บ Requirement ที่ไม่สมบูรณ์จากผู้ใช้งาน และการพัฒนาอัลกอริทึมที่ตอบโจทย์ความต้องการของผู้ใช้งานได้อย่างมีประสิทธิภาพ",
+            websitelink:"https://travelcluster.app/map"
         },
         {
             name: 'Petfolio - Pet Management System',
             detail: 'ระบบจัดการประวัติสุขภาพสัตว์เลี้ยงแบบครบวงจร รวมถึงฟังก์ชันบันทึกข้อมูล สร้างชุมชนสัตว์เลี้ยง และระบบแจ้งเตือนการดูแลรักษา',
             img: ['/images/myproject/petfolio/1.png','/images/myproject/petfolio/2.png','/images/myproject/petfolio/3.png','/images/myproject/petfolio/4.png','/images/myproject/petfolio/5.png','/images/myproject/petfolio/6.png','/images/myproject/petfolio/7.png','/images/myproject/petfolio/8.png','/images/myproject/petfolio/9.png','/images/myproject/petfolio/10.png','/images/myproject/petfolio/11.png','/images/myproject/petfolio/12.png','/images/myproject/petfolio/13.png','/images/myproject/petfolio/14.png','/images/myproject/petfolio/15.png','/images/myproject/petfolio/16.png','/images/myproject/petfolio/17.png','/images/myproject/petfolio/18.png','/images/myproject/petfolio/19.png','/images/myproject/petfolio/20.png','/images/myproject/petfolio/21.png','/images/myproject/petfolio/22.png','/images/myproject/petfolio/23.png','/images/myproject/petfolio/24.png','/images/myproject/petfolio/25.png','/images/myproject/petfolio/26.png','/images/myproject/petfolio/27.png'],
             tech:["Next.js", "Express.js", "MongoDB", "JWT", "RESTful API"],
-            challenges:"การเรียนรู้และปรับตัวกับการใช้ NoSQL Database ในการพัฒนาระบบขนาดใหญ่ การบริหารจัดการทีมที่มีความเร็วในการทำงานหลากหลาย และการออกแบบระบบที่รองรับการใช้งานจริง"
+            challenges:"การเรียนรู้และปรับตัวกับการใช้ NoSQL Database ในการพัฒนาระบบขนาดใหญ่ การบริหารจัดการทีมที่มีความเร็วในการทำงานหลากหลาย และการออกแบบระบบที่รองรับการใช้งานจริง",
+            githubrepo:"https://github.com/JengCharat/petfolio.git",
+            websitelink:"https://petfolio.lol"
+
         },
         {
             name: 'Vilapark - Condominium Management System',
             detail: 'ระบบบริหารจัดการคอนโดมิเนียมสัตว์เลี้ยง ประกอบด้วยโมดูลสำหรับผู้เช่า ผู้จัดการ และผู้ดูแลระบบ เพื่อเพิ่มประสิทธิภาพในการจองห้องและจัดการทรัพย์สิน',
             img: ['/images/myproject/vilapark/1.png','/images/myproject/vilapark/2.png','/images/myproject/vilapark/3.png','/images/myproject/vilapark/4.png','/images/myproject/vilapark/5.png','/images/myproject/vilapark/6.png','/images/myproject/vilapark/7.png','/images/myproject/vilapark/8.png','/images/myproject/vilapark/9.png','/images/myproject/vilapark/10.png','/images/myproject/vilapark/11.png','/images/myproject/vilapark/12.png'],
             tech:["Next.js", "Spring Boot", "MySQL", "RESTful API"],
-            challenges:"การเรียนรู้ Framework ใหม่ที่มีความซับซ้อนสูง การประสานงานระหว่าง Frontend และ Backend ที่ใช้เทคโนโลยีต่างกัน "
+            challenges:"การเรียนรู้ Framework ใหม่ที่มีความซับซ้อนสูง การประสานงานระหว่าง Frontend และ Backend ที่ใช้เทคโนโลยีต่างกัน ",
+            githubrepo:"https://github.com/JengCharat/VilaPark.git",
+            websitelink:"https://vilapark.app/signup"
         },
         {
           name: 'เกมแม่ใช้ไปซื้อน้ำปลา',
@@ -137,7 +148,10 @@ export default function Home(){
             '/images/myproject/mcpcnp/14.png'
           ],
           tech: ['Java Swing'],
-          challenges: 'การพัฒนาเกมด้วย Java Swing มีความซับซ้อนและต้องดำเนินงานภายใต้ข้อจำกัดด้านเวลา'
+          challenges: 'การพัฒนาเกมด้วย Java Swing มีความซับซ้อนและต้องดำเนินงานภายใต้ข้อจำกัดด้านเวลา',
+          githubrepo:"https://github.com/PANANG6425/MCPSNP.git",
+
+
         },
         {
           name: 'Velocity Guard',
@@ -216,7 +230,8 @@ export default function Home(){
             'Cyclomatic Complexity Analysis',
             'JUnit'
           ],
-          challenges: 'การวิเคราะห์ซอร์สโค้ดในเชิงลึกต้องใช้ความละเอียดรอบคอบและใช้เวลาค่อนข้างมาก ซึ่งอาจเป็นงานที่ท้าทายในแง่ของความต่อเนื่องและความน่าสนใจ'
+          challenges: 'การวิเคราะห์ซอร์สโค้ดในเชิงลึกต้องใช้ความละเอียดรอบคอบและใช้เวลาค่อนข้างมาก ซึ่งอาจเป็นงานที่ท้าทายในแง่ของความต่อเนื่องและความน่าสนใจ',
+          githubrepo:"https://github.com/JengCharat/sqa_project.git"
         }
     ]
 
