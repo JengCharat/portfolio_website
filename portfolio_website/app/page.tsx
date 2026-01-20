@@ -3,7 +3,7 @@ import { GitHubCalendar } from 'react-github-calendar'
 import Navbar from "./components/Navbar"
 import Image from "next/image"
 import { useState } from "react"
-import { FaPhone, FaEnvelope, FaGithub, FaTimes, FaArrowLeft, FaArrowRight, FaTools, FaLightbulb } from "react-icons/fa"
+import { FaPhone, FaEnvelope, FaGithub, FaTimes, FaArrowLeft, FaArrowRight, FaTools, FaLightbulb, FaLink, FaExternalLinkAlt, FaGlobe } from "react-icons/fa"
 
 type ContactItem = {
     name:string,
@@ -118,20 +118,19 @@ export default function Home(){
             challenges:"การเรียนรู้และปรับตัวกับการใช้ NoSQL Database ในการพัฒนาระบบขนาดใหญ่ การบริหารจัดการทีมที่มีความเร็วในการทำงานหลากหลาย และการออกแบบระบบที่รองรับการใช้งานจริง",
             githubrepo:"https://github.com/JengCharat/petfolio.git",
             websitelink:"https://petfolio.lol"
-
         },
         {
             name: 'Vilapark - Condominium Management System',
             detail: 'ระบบบริหารจัดการคอนโดมิเนียมสัตว์เลี้ยง ประกอบด้วยโมดูลสำหรับผู้เช่า ผู้จัดการ และผู้ดูแลระบบ เพื่อเพิ่มประสิทธิภาพในการจองห้องและจัดการทรัพย์สิน',
             img: ['/images/myproject/vilapark/1.png','/images/myproject/vilapark/2.png','/images/myproject/vilapark/3.png','/images/myproject/vilapark/4.png','/images/myproject/vilapark/5.png','/images/myproject/vilapark/6.png','/images/myproject/vilapark/7.png','/images/myproject/vilapark/8.png','/images/myproject/vilapark/9.png','/images/myproject/vilapark/10.png','/images/myproject/vilapark/11.png','/images/myproject/vilapark/12.png'],
             tech:["Next.js", "Spring Boot", "MySQL", "RESTful API"],
-            challenges:"การเรียนรู้ Framework ใหม่ที่มีความซับซ้อนสูง การประสานงานระหว่าง Frontend และ Backend ที่ใช้เทคโนโลยีต่างกัน ",
+            challenges:"การเรียนรู้ Framework ใหม่ที่มีความซับซ้อนสูง การประสานงานระหว่าง Frontend และ Backend ที่ใช้เทคโนโลยีต่างกัน",
             githubrepo:"https://github.com/JengCharat/VilaPark.git",
             websitelink:"https://vilapark.app/signup"
         },
         {
           name: 'เกมแม่ใช้ไปซื้อน้ำปลา',
-          detail: 'เด็กชายตื่นขึ้นเมื่อได้ยินแม่บอกให้ไปซื้อของใช้ โดยรู้สึกโมโหและไม่พอใจ แต่ก็ไม่สนใจเหตุผลที่แม่บอก ในตัวเด็กคิดว่าแม่ต้องการน้ำปลาอย่างแน่นอน จึงไม่ถามแม่และรีบไปซื้อของเมื่อกลับมาหน้ามืดเขารู้สึกแปลกๆ พบว่าถือเทียนอยู่ รู้สึกต้องหนีออกจากที่นั้น และพบว่าสภาพแวดล้อมเปลี่ยนแปลงทั้งมืดมิดและรู้สึกว่ามีความอันตรายใกล้เข้ามา แล้วหลังจากนั้น.....',
+          detail: 'เด็กชายตื่นขึ้นเมื่อได้ยินแม่บอกให้ไปซื้อของใช้ โดยรู้สึกโมโหและไม่พอใจ แต่ก็ไม่สนใจเหตุผลที่แม่บอก ในตัวเด็กคิดว่าแม่ต้องการน้ำปลาอย่างแน่นอน จึงไม่ถามแม่และรีบไปซื้อของ เมื่อกลับมาหน้ามืดเขารู้สึกแปลกๆ พบว่าถือเทียนอยู่ รู้สึกต้องหนีออกจากที่นั้น และพบว่าสภาพแวดล้อมเปลี่ยนแปลงทั้งมืดมิดและรู้สึกว่ามีความอันตรายใกล้เข้ามา',
           img: [
             '/images/myproject/mcpcnp/1.png',
             '/images/myproject/mcpcnp/3.png',
@@ -150,8 +149,6 @@ export default function Home(){
           tech: ['Java Swing'],
           challenges: 'การพัฒนาเกมด้วย Java Swing มีความซับซ้อนและต้องดำเนินงานภายใต้ข้อจำกัดด้านเวลา',
           githubrepo:"https://github.com/PANANG6425/MCPSNP.git",
-
-
         },
         {
           name: 'Velocity Guard',
@@ -190,7 +187,6 @@ export default function Home(){
           tech: ['Python 3', 'HTML'],
           challenges: 'ระบบจำเป็นต้องใช้ข้อมูลแผนที่และปัจจัยด้านสภาพพื้นผิวถนน ซึ่งมีผลต่อแรงยึดเกาะ เช่น คอนกรีตและยางมะตอย ทำให้การคำนวณมีความซับซ้อนมากขึ้น'
         },
-
         {
           name: 'การเขียนชุดทดสอบเพื่อเปรียบเทียบคุณภาพโค้ดระหว่างมนุษย์และ AI',
           detail: 'โครงการนี้มุ่งเน้นการออกแบบและเขียนชุดทดสอบ (Test Cases) เพื่อประเมินคุณภาพของซอร์สโค้ดที่เขียนโดยมนุษย์และระบบปัญญาประดิษฐ์ โดยใช้เครื่องมือวิเคราะห์โค้ดแบบสถิตและการทดสอบหน่วย เพื่อเปรียบเทียบด้านความซับซ้อนของโค้ด ความสามารถในการบำรุงรักษา และความถูกต้องของการทำงาน',
@@ -244,7 +240,7 @@ export default function Home(){
     const technicalskill:TechnicalSkillItem[] = [
         {skill:'HTML'},{skill:'CSS'},{skill:'JavaScript'},{skill:'TypeScript'},{skill:'Laravel'},
         {skill:'Next.js'},{skill:'Express.js'},{skill:'MySQL'},{skill:"MongoDB"},{skill:'Kotlin'},
-        {skill:'C Programming'},{skill:'Java'},{skill:'Spring Boot'},{skill:"Python"},{skill:'React'}
+        {skill:'C Programming'},{skill:'Java'}, { skill: 'JUnit (Java Unit Testing)' },{skill:'Spring Boot'},{skill:"Python"},{skill:'React'}
     ]
 
     const toolandplatform:ToolAndPlatformItem[] = [
@@ -379,6 +375,34 @@ export default function Home(){
                                         </div>
                                     </div>
 
+                                    {/* ลิงก์ GitHub และ Website */}
+                                    <div className="flex flex-wrap gap-4">
+                                        {'githubrepo' in selectedItem && selectedItem.githubrepo && (
+                                            <a 
+                                                href={selectedItem.githubrepo}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors"
+                                            >
+                                                <FaGithub className="text-white" />
+                                                <span>GitHub Repository</span>
+                                                <FaExternalLinkAlt className="text-xs" />
+                                            </a>
+                                        )}
+                                        {'websitelink' in selectedItem && selectedItem.websitelink && (
+                                            <a 
+                                                href={selectedItem.websitelink}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+                                            >
+                                                <FaGlobe className="text-white" />
+                                                <span>Visit Website</span>
+                                                <FaExternalLinkAlt className="text-xs" />
+                                            </a>
+                                        )}
+                                    </div>
+
                                     {/* ความท้าทายและบทเรียนที่ได้รับ */}
                                     <div className="bg-gray-700/50 p-5 rounded-lg border border-gray-600">
                                         <h4 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
@@ -506,11 +530,23 @@ export default function Home(){
                                 }}>
                                     <div className="relative h-48">
                                         <Image src={item.img[0]} alt={item.name} fill className="object-cover" />
-                                        {item.img.length > 1 && (
-                                            <div className="absolute top-3 right-3 bg-black/70 text-white px-3 py-1 rounded-full text-sm backdrop-blur-sm">
-                                                +{item.img.length - 1} รูป
-                                            </div>
-                                        )}
+                                        <div className="absolute top-3 right-3 flex gap-1">
+                                            {item.img.length > 1 && (
+                                                <div className="bg-black/70 text-white px-2 py-1 rounded-full text-xs backdrop-blur-sm">
+                                                    +{item.img.length - 1} รูป
+                                                </div>
+                                            )}
+                                            {item.githubrepo && (
+                                                <div className="bg-gray-800/90 text-white px-2 py-1 rounded-full text-xs backdrop-blur-sm border border-gray-600">
+                                                    <FaGithub />
+                                                </div>
+                                            )}
+                                            {item.websitelink && (
+                                                <div className="bg-blue-600/90 text-white px-2 py-1 rounded-full text-xs backdrop-blur-sm border border-blue-500">
+                                                    <FaLink />
+                                                </div>
+                                            )}
+                                        </div>
                                     </div>
                                     <div className="p-5">
                                         <h3 className="font-bold text-xl mb-2">{item.name}</h3>
@@ -527,7 +563,7 @@ export default function Home(){
                                                 </span>
                                             )}
                                         </div>
-                                        <div className="text-blue-400 text-sm hover:text-blue-300 transition-colors">
+                                        <div className="text-blue-400 text-sm hover:text-blue-300 transition-colors flex items-center gap-1">
                                             คลิกเพื่อดูรายละเอียด →
                                         </div>
                                     </div>
