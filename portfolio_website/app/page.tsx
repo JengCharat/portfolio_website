@@ -40,6 +40,10 @@ export default function Home(){
     const [currentImageIndex, setCurrentImageIndex] = useState(0)
     
     const mathayom_certification:CertificateItem[] = [
+
+      { name: 'การประกวดโครงงานระดับนานาชาติ ในงาน Indonesia Inventors Day 2022 (9th IYIA)', detail:` การประกวดโครงงานระดับนานาชาติ ในงาน Indonesia Inventors Day 2022 (9th IYIA) จากโครงงานเรื่อง The Applicaation of Artificial Intelogence for Analysis of Chillies Diseaes, Nutrient Deficiencies, Pets Detection and Elimination with CIRA CORE Platform
+          หน่วยงานที่จัด : INDONESIAN INVENTION AND INNOVATION PROMOTION ASSOCIATION (INNOPA)
+          วันเวลา สถานที่ 29-31 October 2022 Udayana University Bali,Indonesia`, img:'/images/certification/iyia.png'},
       { name: 'แข่งขันหุ่นยนต์ระดับสูง', detail:'แข่งขันหุ่นยนต์ระดับสูง ม.1-ม.3 (เหรียญเงิน) งานศิลปหัตถกรรมนักเรียนระดับชาติ ครั้งที่ 69 ปี 2562', img:'/images/certification/silapa69-high.png'},
       { name: 'แข่งหุ่นยนต์ระดับกลาง', detail:'แข่งขันหุ่นยนต์ระดับกลาง ม.1-ม.3 (เหรียญทองแดง) งานศิลปหัตถกรรมนักเรียนระดับชาติ ครั้งที่ 69 ปี 2562', img:'/images/certification/silapa69-middle.png'},
       { name: 'แข่งขันหุ่นยนต์ระผสม', detail:'แข่งขันหุ่นยนต์ระผสม ม.1-ม.3 (เหรียญเงิน) งานศิลปหัตถกรรมนักเรียนระดับชาติ ครั้งที่ 69 ปี 2562', img:'/images/certification/silapa69-mix.png'},
@@ -57,64 +61,64 @@ export default function Home(){
 
         const activity_image: ActivityImageItem[] = [
             {
-                name: 'กิจกรรมแข่งขันหุ่นยนต์',
-                detail: 'ภาพกิจกรรมการแข่งขันหุ่นยนต์',
+                name: 'กิจกรรมซ้อมแข่งขันหุ่นยนต์',
+                detail: 'ภาพกิจกรรมการซ้อมแข่งขันหุ่นยนต์',
                 img: '/images/activity_image/1.png'
             },
             {
                 name: 'กิจกรรมอบรม',
-                detail: 'ภาพกิจกรรมการอบรมเชิงปฏิบัติการ',
+                detail: 'ภาพกิจกรรมการอบรม cira core',
                 img: '/images/activity_image/2.png'
             },
             {
                 name: 'กิจกรรมอบรม',
-                detail: 'ภาพกิจกรรมการอบรมเชิงปฏิบัติการ',
+                detail: 'ภาพกิจกรรมการอบรม microcontroller',
                 img: '/images/activity_image/3.png'
             },
             {
-                name: 'กิจกรรมอบรม',
-                detail: 'ภาพกิจกรรมการอบรมเชิงปฏิบัติการ',
+                name: 'ผลงาน',
+                detail: 'ผ่านเข้ารอบ 20 ทีม สายสามัญระดับประเทศโครงการ young maker contest ครั้งที่ 4',
                 img: '/images/activity_image/4.png'
             },
             {
-                name: 'กิจกรรมอบรม',
-                detail: 'ภาพกิจกรรมการอบรมเชิงปฏิบัติการ',
+                name: 'ประกวดโครงงานวิทยาศาสตร์ สิ่งประดิษฐ์ทางวิทยาศาสตร์',
+                detail: 'ประกวดโครงงานวิทยาศาสตร์ สิ่งประดิษฐ์ทางวิทยาศาสตร์',
                 img: '/images/activity_image/5.png'
             },
             {
-                name: 'กิจกรรมอบรม',
-                detail: 'ภาพกิจกรรมการอบรมเชิงปฏิบัติการ',
+                name: 'hackathon',
+                detail: 'เข้าร่วม krungsri universe x khonkean university hackathon',
                 img: '/images/activity_image/6.jpg'
             },
             {
                 name: 'กิจกรรมอบรม',
-                detail: 'ภาพกิจกรรมการอบรมเชิงปฏิบัติการ',
+                detail: 'เป็นผู้ช่วยอาจารย์ในการอบรมค่าย IoT ม.4/11-12 ห้องเรียน GP',
                 img: '/images/activity_image/7.JPG'
             },
             {
-                name: 'กิจกรรมอบรม',
-                detail: 'ภาพกิจกรรมการอบรมเชิงปฏิบัติการ',
+                name: 'กิจกรรมแข่งขัน',
+                detail: 'แข่งขันหุ่นยนต์ควายตู้ ที่มหาวิทยาลัยอุบลราชธานี',
                 img: '/images/activity_image/8.JPG'
             },
             {
-                name: 'กิจกรรมอบรม',
-                detail: 'ภาพกิจกรรมการอบรมเชิงปฏิบัติการ',
+                name: 'กิจกรรมแข่งขัน',
+                detail: 'แข่งขันประกวดโครงงานวิทยาศาสตร์ ระดับมัธยมศึกษาตอนต้น สาขาวิทยาศาสตรประยุกต์มหาวิยาลัยอุบลราชธานี',
                 img: '/images/activity_image/9.jpg'
             },
             {
-                name: 'กิจกรรมอบรม',
-                detail: 'ภาพกิจกรรมการอบรมเชิงปฏิบัติการ',
+                name: 'กิจกรรมแข่งขัน',
+                detail: 'การประกวดโครงงานระดับนานาชาติ ในงาน Indonesia Inventors Day 2022 (9th IYIA)',
                 img: '/images/activity_image/10.jpg'
             },
 
             {
-                name: 'กิจกรรมอบรม',
-                detail: 'ภาพกิจกรรมการอบรมเชิงปฏิบัติการ',
+                name: 'hackathon',
+                detail: 'TBL hackathon',
                 img: '/images/activity_image/11.JPG'
             },
             {
-                name: 'กิจกรรมอบรม',
-                detail: 'ภาพกิจกรรมการอบรมเชิงปฏิบัติการ',
+                name: 'กิจกรรมโรงเรียน',
+                detail: 'ร่วมกับผู้บริหารสถานศึกษา ครู และบุคคลากรทางการศึกษาพัฒนาสถานศึกษาจนได้รับรางวัลพระราชทาน ในโครงการคัดเลือกนักเรียนและสถานศึกษา ขนาดใหญ่เพื่อรับรางวัลพระราชทานประจำปีการศึกษา 2561',
                 img: '/images/activity_image/12.JPG'
             }
         ]
@@ -464,30 +468,6 @@ export default function Home(){
                         </div>
                     </div>
 
-                    <div id="certificate" className="mb-12">
-                        <h2 className="text-2xl font-bold text-center mb-6">เกียรติบัตร & รางวัล</h2>
-                        <div className="flex overflow-x-auto gap-4 pb-4">
-                            {mathayom_certification.map((item,i) => (
-                                <div key={i} className="min-w-64 bg-gray-800 rounded-xl overflow-hidden cursor-pointer" onClick={() => setSelectedItem(item)}>
-                                    <div className="relative h-40">
-                                        <Image src={item.img} alt={item.name} fill className="object-cover" />
-                                    </div>
-                                    <div className="p-4">
-                                        <h3 className="font-bold mb-2">{item.name}</h3>
-                                        <p className="text-gray-400 text-sm line-clamp-2">{item.detail}</p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                        <h3 className="text-xl font-bold mt-8 mb-4">ภาพกิจกรรม</h3>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                            {activity_image.map((item,i) => (
-                                <div key={i} className="relative h-40 rounded-xl overflow-hidden cursor-pointer" onClick={() => setSelectedItem(item)}>
-                                    <Image src={item.img} alt={item.name} fill className="object-cover" />
-                                </div>
-                            ))}
-                        </div>
-                    </div>
 
                     <div id="myproject" className="mb-12">
                         <h2 className="text-2xl font-bold text-center mb-6">โปรเจคที่น่าสนใจ</h2>
@@ -509,6 +489,31 @@ export default function Home(){
                                         <h3 className="font-bold mb-2">{item.name}</h3>
                                         <p className="text-gray-400">{item.detail}</p>
                                     </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div id="certificate" className="mb-12">
+                        <h2 className="text-2xl font-bold text-center mb-6">เกียรติบัตร & รางวัล</h2>
+                        <div className="flex overflow-x-auto gap-4 pb-4">
+                            {mathayom_certification.map((item,i) => (
+                                <div key={i} className="min-w-64 bg-gray-800 rounded-xl overflow-hidden cursor-pointer" onClick={() => setSelectedItem(item)}>
+                                    <div className="relative h-40">
+                                        <Image src={item.img} alt={item.name} fill className="object-cover" />
+                                    </div>
+                                    <div className="p-4">
+                                        <h3 className="font-bold mb-2">{item.name}</h3>
+                                        <p className="text-gray-400 text-sm line-clamp-2">{item.detail}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        <h3 className="text-xl font-bold mt-8 mb-4">ภาพกิจกรรม</h3>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            {activity_image.map((item,i) => (
+                                <div key={i} className="relative h-40 rounded-xl overflow-hidden cursor-pointer" onClick={() => setSelectedItem(item)}>
+                                    <Image src={item.img} alt={item.name} fill className="object-cover" />
                                 </div>
                             ))}
                         </div>
