@@ -417,7 +417,7 @@ export default function Home(){
                             <h3 className="text-xl mb-2">สวัสดีครับ <span className="text-blue-400">ผมเจ๋ง</span></h3>
                             <h1 className="text-3xl font-bold mb-4">แก้วเพ็ชรัตน์ สีสันต์</h1>
                             <p className="text-gray-300 mb-6">นักศึกษาปี 3 วิทยาการคอมพิวเตอร์ มหาวิทยาลัยขอนแก่น หลงใหลในการสร้างสรรค์เทคโนโลยี</p>
-                            <div className="flex flex-wrap gap-4 mb-6">
+                            <div className="flex flex-wrap gap-4 mb-6 justify-center md:justify-start">
                                 <a href="#myproject" className="px-6 py-2 bg-blue-600 rounded-lg">ดูผลงาน</a>
                                 <a href="#contact" className="px-6 py-2 border border-blue-500 rounded-lg">ติดต่อ</a>
                             </div>
