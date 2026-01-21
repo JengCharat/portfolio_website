@@ -444,7 +444,7 @@ export default function Home(){
                             />
                         </div>
                         <div className="text-center md:text-left flex-1">
-                            <h3 className="text-2xl mb-3">สวัสดีครับ <span className="text-blue-400 font-semibold">ผมเจ๋ง</span></h3>
+                            <h3 className="text-2xl mb-3">สวัสดีครับ <span className="text-blue-400 font-semibold text-5xl">ผมเจ๋ง</span></h3>
                             <h1 className="text-4xl font-bold mb-5 bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
                                 แก้วเพ็ชรัตน์ สีสันต์
                             </h1>
