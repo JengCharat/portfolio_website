@@ -14,10 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Jengcharat Portfolio",
-  description: "Personal portfolio of Jengcharat, a software engineer specializing in web development, React, Next.js, and Laravel.",
-  icons: {
-    icon: "/favicon.jpg",
-  },
+  description: "Personal portfolio of Jengcharat, a software engineer specializing in web development, React, Next.js, and Laravel."
 };
 
 export default function RootLayout({
