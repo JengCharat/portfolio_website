@@ -240,7 +240,7 @@ export default function Home(){
     const technicalskill:TechnicalSkillItem[] = [
         {skill:'HTML'},{skill:'CSS'},{skill:'JavaScript'},{skill:'TypeScript'},{skill:'Laravel'},
         {skill:'Next.js'},{skill:'Express.js'},{skill:'MySQL'},{skill:"MongoDB"},{skill:'Kotlin'},
-        {skill:'C Programming'},{skill:'Java'}, { skill: 'JUnit (Java Unit Testing)' },{skill:'Spring Boot'},{skill:"Python"},{skill:'React'}
+        {skill:'C Programming'},{skill:'Java'}, { skill: 'JUnit (Java Unit Testing)' },{ skill: 'Robot Framework (UAT / Automation Testing)' },{skill:'Spring Boot'},{skill:"Python"},{skill:'React'}
     ]
 
     const toolandplatform:ToolAndPlatformItem[] = [
@@ -251,9 +251,8 @@ export default function Home(){
 
     const softskill:SoftSkillItem[] = [
       { skill: "Agile Methodology" }, { skill: "Team Collaboration" }, { skill: "Problem Solving" }, 
-      { skill: "Effective Communication" }, { skill: "Adaptability" }, { skill: "Time Management" }, 
-      { skill: "Critical Thinking" }, { skill: "Self-Directed Learning" }, { skill: "Leadership" },
-      { skill: "Project Management" }
+     { skill: "Adaptability" }, { skill: "Time Management" }, 
+     { skill: "Self-Directed Learning" }, { skill: "Leadership" },
     ]
 
     const handlePrevImage = () => {
